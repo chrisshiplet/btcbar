@@ -19,6 +19,8 @@ The current version of btcbar (1.0.0) can be downloaded here:
 
 https://github.com/nearengine/btcbar/blob/master/Release/btcbar_1_0_0.zip?raw=true
 
+It requires OS X 10.7+ and a 64-bit processor.
+
 ## Donate
 
 If for some reason you feel like donating a few micro btc to future development, those should go here:
