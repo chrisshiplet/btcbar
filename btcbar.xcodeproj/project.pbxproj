@@ -12,26 +12,12 @@
 		830CE09D171B6C3E00DDD525 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CE09C171B6C3E00DDD525 /* main.m */; };
 		830CE0A4171B6C3E00DDD525 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CE0A3171B6C3E00DDD525 /* AppDelegate.m */; };
 		830CE0A7171B6C3E00DDD525 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 830CE0A5171B6C3E00DDD525 /* MainMenu.xib */; };
-		830CE0AF171B6C3F00DDD525 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830CE0AE171B6C3F00DDD525 /* SenTestingKit.framework */; };
-		830CE0B0171B6C3F00DDD525 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830CE090171B6C3E00DDD525 /* Cocoa.framework */; };
-		830CE0B8171B6C3F00DDD525 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 830CE0B6171B6C3F00DDD525 /* InfoPlist.strings */; };
-		830CE0BB171B6C3F00DDD525 /* btcbarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CE0BA171B6C3F00DDD525 /* btcbarTests.m */; };
 		830CE0E6171B914300DDD525 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 830CE0E5171B914300DDD525 /* Icon.icns */; };
 		830CE101171B9A5A00DDD525 /* btclogoAlternate.png in Resources */ = {isa = PBXBuildFile; fileRef = 830CE0FD171B9A5A00DDD525 /* btclogoAlternate.png */; };
 		830CE102171B9A5A00DDD525 /* btclogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 830CE0FE171B9A5A00DDD525 /* btclogo.png */; };
 		830CE103171B9A5A00DDD525 /* btclogoAlternate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 830CE0FF171B9A5A00DDD525 /* btclogoAlternate@2x.png */; };
 		830CE104171B9A5A00DDD525 /* btclogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 830CE100171B9A5A00DDD525 /* btclogo@2x.png */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		830CE0B1171B6C3F00DDD525 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 830CE085171B6C3E00DDD525 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 830CE08C171B6C3E00DDD525;
-			remoteInfo = btcbar;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		830CE08D171B6C3E00DDD525 /* btcbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = btcbar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,12 +32,7 @@
 		830CE0A2171B6C3E00DDD525 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		830CE0A3171B6C3E00DDD525 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		830CE0A6171B6C3E00DDD525 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		830CE0AD171B6C3F00DDD525 /* btcbarTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = btcbarTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		830CE0AE171B6C3F00DDD525 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		830CE0B5171B6C3F00DDD525 /* btcbarTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "btcbarTests-Info.plist"; sourceTree = "<group>"; };
-		830CE0B7171B6C3F00DDD525 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		830CE0B9171B6C3F00DDD525 /* btcbarTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = btcbarTests.h; sourceTree = "<group>"; };
-		830CE0BA171B6C3F00DDD525 /* btcbarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = btcbarTests.m; sourceTree = "<group>"; };
 		830CE0E5171B914300DDD525 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		830CE0FD171B9A5A00DDD525 /* btclogoAlternate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btclogoAlternate.png; sourceTree = "<group>"; };
 		830CE0FE171B9A5A00DDD525 /* btclogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btclogo.png; sourceTree = "<group>"; };
@@ -68,15 +49,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		830CE0A9171B6C3F00DDD525 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				830CE0AF171B6C3F00DDD525 /* SenTestingKit.framework in Frameworks */,
-				830CE0B0171B6C3F00DDD525 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -85,7 +57,6 @@
 			children = (
 				830CE0E5171B914300DDD525 /* Icon.icns */,
 				830CE096171B6C3E00DDD525 /* btcbar */,
-				830CE0B3171B6C3F00DDD525 /* btcbarTests */,
 				830CE08F171B6C3E00DDD525 /* Frameworks */,
 				830CE08E171B6C3E00DDD525 /* Products */,
 			);
@@ -95,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				830CE08D171B6C3E00DDD525 /* btcbar.app */,
-				830CE0AD171B6C3F00DDD525 /* btcbarTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,25 +113,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		830CE0B3171B6C3F00DDD525 /* btcbarTests */ = {
-			isa = PBXGroup;
-			children = (
-				830CE0B9171B6C3F00DDD525 /* btcbarTests.h */,
-				830CE0BA171B6C3F00DDD525 /* btcbarTests.m */,
-				830CE0B4171B6C3F00DDD525 /* Supporting Files */,
-			);
-			path = btcbarTests;
-			sourceTree = "<group>";
-		};
-		830CE0B4171B6C3F00DDD525 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				830CE0B5171B6C3F00DDD525 /* btcbarTests-Info.plist */,
-				830CE0B6171B6C3F00DDD525 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		830CE0C4171B714E00DDD525 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,25 +144,6 @@
 			productReference = 830CE08D171B6C3E00DDD525 /* btcbar.app */;
 			productType = "com.apple.product-type.application";
 		};
-		830CE0AC171B6C3F00DDD525 /* btcbarTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 830CE0C1171B6C3F00DDD525 /* Build configuration list for PBXNativeTarget "btcbarTests" */;
-			buildPhases = (
-				830CE0A8171B6C3F00DDD525 /* Sources */,
-				830CE0A9171B6C3F00DDD525 /* Frameworks */,
-				830CE0AA171B6C3F00DDD525 /* Resources */,
-				830CE0AB171B6C3F00DDD525 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				830CE0B2171B6C3F00DDD525 /* PBXTargetDependency */,
-			);
-			name = btcbarTests;
-			productName = btcbarTests;
-			productReference = 830CE0AD171B6C3F00DDD525 /* btcbarTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -234,7 +166,6 @@
 			projectRoot = "";
 			targets = (
 				830CE08C171B6C3E00DDD525 /* btcbar */,
-				830CE0AC171B6C3F00DDD525 /* btcbarTests */,
 			);
 		};
 /* End PBXProject section */
@@ -254,31 +185,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		830CE0AA171B6C3F00DDD525 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				830CE0B8171B6C3F00DDD525 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		830CE0AB171B6C3F00DDD525 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		830CE089171B6C3E00DDD525 /* Sources */ = {
@@ -290,23 +197,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		830CE0A8171B6C3F00DDD525 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				830CE0BB171B6C3F00DDD525 /* btcbarTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		830CE0B2171B6C3F00DDD525 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 830CE08C171B6C3E00DDD525 /* btcbar */;
-			targetProxy = 830CE0B1171B6C3F00DDD525 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		830CE099171B6C3E00DDD525 /* InfoPlist.strings */ = {
@@ -323,14 +214,6 @@
 				830CE0A6171B6C3E00DDD525 /* en */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		830CE0B6171B6C3F00DDD525 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				830CE0B7171B6C3F00DDD525 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -423,36 +306,6 @@
 			};
 			name = Release;
 		};
-		830CE0C2171B6C3F00DDD525 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/btcbar.app/Contents/MacOS/btcbar";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "btcbar/btcbar-Prefix.pch";
-				INFOPLIST_FILE = "btcbarTests/btcbarTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		830CE0C3171B6C3F00DDD525 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/btcbar.app/Contents/MacOS/btcbar";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "btcbar/btcbar-Prefix.pch";
-				INFOPLIST_FILE = "btcbarTests/btcbarTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -472,14 +325,7 @@
 				830CE0C0171B6C3F00DDD525 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		830CE0C1171B6C3F00DDD525 /* Build configuration list for PBXNativeTarget "btcbarTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				830CE0C2171B6C3F00DDD525 /* Debug */,
-				830CE0C3171B6C3F00DDD525 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
