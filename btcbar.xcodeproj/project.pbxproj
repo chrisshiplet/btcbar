@@ -10,13 +10,17 @@
 		830CE091171B6C3E00DDD525 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830CE090171B6C3E00DDD525 /* Cocoa.framework */; };
 		830CE09B171B6C3E00DDD525 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 830CE099171B6C3E00DDD525 /* InfoPlist.strings */; };
 		830CE09D171B6C3E00DDD525 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CE09C171B6C3E00DDD525 /* main.m */; };
-		830CE0A1171B6C3E00DDD525 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 830CE09F171B6C3E00DDD525 /* Credits.rtf */; };
 		830CE0A4171B6C3E00DDD525 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CE0A3171B6C3E00DDD525 /* AppDelegate.m */; };
 		830CE0A7171B6C3E00DDD525 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 830CE0A5171B6C3E00DDD525 /* MainMenu.xib */; };
 		830CE0AF171B6C3F00DDD525 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830CE0AE171B6C3F00DDD525 /* SenTestingKit.framework */; };
 		830CE0B0171B6C3F00DDD525 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830CE090171B6C3E00DDD525 /* Cocoa.framework */; };
 		830CE0B8171B6C3F00DDD525 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 830CE0B6171B6C3F00DDD525 /* InfoPlist.strings */; };
 		830CE0BB171B6C3F00DDD525 /* btcbarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CE0BA171B6C3F00DDD525 /* btcbarTests.m */; };
+		830CE0E6171B914300DDD525 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 830CE0E5171B914300DDD525 /* Icon.icns */; };
+		830CE101171B9A5A00DDD525 /* btclogoAlternate.png in Resources */ = {isa = PBXBuildFile; fileRef = 830CE0FD171B9A5A00DDD525 /* btclogoAlternate.png */; };
+		830CE102171B9A5A00DDD525 /* btclogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 830CE0FE171B9A5A00DDD525 /* btclogo.png */; };
+		830CE103171B9A5A00DDD525 /* btclogoAlternate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 830CE0FF171B9A5A00DDD525 /* btclogoAlternate@2x.png */; };
+		830CE104171B9A5A00DDD525 /* btclogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 830CE100171B9A5A00DDD525 /* btclogo@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +43,6 @@
 		830CE09A171B6C3E00DDD525 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		830CE09C171B6C3E00DDD525 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		830CE09E171B6C3E00DDD525 /* btcbar-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "btcbar-Prefix.pch"; sourceTree = "<group>"; };
-		830CE0A0171B6C3E00DDD525 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		830CE0A2171B6C3E00DDD525 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		830CE0A3171B6C3E00DDD525 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		830CE0A6171B6C3E00DDD525 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -49,6 +52,11 @@
 		830CE0B7171B6C3F00DDD525 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		830CE0B9171B6C3F00DDD525 /* btcbarTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = btcbarTests.h; sourceTree = "<group>"; };
 		830CE0BA171B6C3F00DDD525 /* btcbarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = btcbarTests.m; sourceTree = "<group>"; };
+		830CE0E5171B914300DDD525 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
+		830CE0FD171B9A5A00DDD525 /* btclogoAlternate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btclogoAlternate.png; sourceTree = "<group>"; };
+		830CE0FE171B9A5A00DDD525 /* btclogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btclogo.png; sourceTree = "<group>"; };
+		830CE0FF171B9A5A00DDD525 /* btclogoAlternate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btclogoAlternate@2x.png"; sourceTree = "<group>"; };
+		830CE100171B9A5A00DDD525 /* btclogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btclogo@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,7 @@
 		830CE084171B6C3E00DDD525 = {
 			isa = PBXGroup;
 			children = (
+				830CE0E5171B914300DDD525 /* Icon.icns */,
 				830CE096171B6C3E00DDD525 /* btcbar */,
 				830CE0B3171B6C3F00DDD525 /* btcbarTests */,
 				830CE08F171B6C3E00DDD525 /* Frameworks */,
@@ -114,6 +123,7 @@
 		830CE096171B6C3E00DDD525 /* btcbar */ = {
 			isa = PBXGroup;
 			children = (
+				830CE0C4171B714E00DDD525 /* Icons */,
 				830CE0A2171B6C3E00DDD525 /* AppDelegate.h */,
 				830CE0A3171B6C3E00DDD525 /* AppDelegate.m */,
 				830CE0A5171B6C3E00DDD525 /* MainMenu.xib */,
@@ -129,7 +139,6 @@
 				830CE099171B6C3E00DDD525 /* InfoPlist.strings */,
 				830CE09C171B6C3E00DDD525 /* main.m */,
 				830CE09E171B6C3E00DDD525 /* btcbar-Prefix.pch */,
-				830CE09F171B6C3E00DDD525 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -151,6 +160,17 @@
 				830CE0B6171B6C3F00DDD525 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		830CE0C4171B714E00DDD525 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				830CE0FD171B9A5A00DDD525 /* btclogoAlternate.png */,
+				830CE0FE171B9A5A00DDD525 /* btclogo.png */,
+				830CE0FF171B9A5A00DDD525 /* btclogoAlternate@2x.png */,
+				830CE100171B9A5A00DDD525 /* btclogo@2x.png */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,8 +245,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				830CE09B171B6C3E00DDD525 /* InfoPlist.strings in Resources */,
-				830CE0A1171B6C3E00DDD525 /* Credits.rtf in Resources */,
 				830CE0A7171B6C3E00DDD525 /* MainMenu.xib in Resources */,
+				830CE0E6171B914300DDD525 /* Icon.icns in Resources */,
+				830CE101171B9A5A00DDD525 /* btclogoAlternate.png in Resources */,
+				830CE102171B9A5A00DDD525 /* btclogo.png in Resources */,
+				830CE103171B9A5A00DDD525 /* btclogoAlternate@2x.png in Resources */,
+				830CE104171B9A5A00DDD525 /* btclogo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +317,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		830CE09F171B6C3E00DDD525 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				830CE0A0171B6C3E00DDD525 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
 		830CE0A5171B6C3E00DDD525 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -347,9 +363,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 			};
 			name = Debug;
 		};
@@ -374,18 +390,20 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				SDKROOT = macosx;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx10.7;
 			};
 			name = Release;
 		};
 		830CE0BF171B6C3F00DDD525 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "btcbar/btcbar-Prefix.pch";
 				INFOPLIST_FILE = "btcbar/btcbar-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -394,10 +412,12 @@
 		830CE0C0171B6C3F00DDD525 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "btcbar/btcbar-Prefix.pch";
 				INFOPLIST_FILE = "btcbar/btcbar-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
