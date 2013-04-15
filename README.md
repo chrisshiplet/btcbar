@@ -12,3 +12,9 @@ Here is how btcbar looks in your status bar:
 ## Installation
 
 Simply place btcbar.app in your `~/Applications` folder, and optionally add it to `Login Items` in `System Preferences > Users & Groups` to display it automatically on startup.
+
+## Download
+
+The current version of btcbar (1.0.0) can be downloaded here:
+
+https://github.com/nearengine/btcbar/blob/master/Release/btcbar_1_0_0.zip?raw=true
