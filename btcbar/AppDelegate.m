@@ -29,7 +29,7 @@
     [btcbarStatusItem setMenu:btcbarMenu];
 
     // Setup timer to update menu bar every 30 seconds
-    updateTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(updateTimerAction:) userInfo:nil repeats:YES];
+    updateTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateTimerAction:) userInfo:nil repeats:YES];
 
     // Update the menu bar for the first time
     [self updateMenuBar];
@@ -49,11 +49,13 @@
     // Initialize a datastore, url, and request
     NSMutableData *data = [[NSMutableData alloc] init];
     receivedData = data;
-    NSURL *url = [NSURL URLWithString:@"http://data.mtgox.com/api/1/BTCUSD/ticker"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    NSURL *url = [NSURL URLWithString:@"http://data.mtgox.com/api/2/BTCUSD/money/ticker_fast"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestReloadIgnoringCacheData
+                                                       timeoutInterval:30.0];
 
     // Set the request's user agent per MtGox's API requirements
-    [request addValue:@"btcbar widget for OS X" forHTTPHeaderField:@"User-Agent"];
+    [request addValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1469.0 Safari/537.36" forHTTPHeaderField:@"User-Agent"];
 
     // Initialize a connection from our request
     connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -89,8 +91,8 @@
 
         // See if it succeeded
         if([resultsStatus isEqualToString:@"success"]) {
-            NSLog(@"%@" , [[[results objectForKey:@"return"] objectForKey:@"last"] objectForKey:@"display"]);
-            [btcbarStatusItem setTitle:[[[results objectForKey:@"return"] objectForKey:@"last"] objectForKey:@"display"]];
+            //NSLog(@"%@ at %@" , [[[results objectForKey:@"data"] objectForKey:@"last"] objectForKey:@"display"], [[results objectForKey:@"data"] objectForKey:@"now"]);
+            [btcbarStatusItem setTitle:[[[results objectForKey:@"data"] objectForKey:@"last"] objectForKey:@"display"]];
         } else {
             [btcbarStatusItem setTitle:@"mtgox err"];
         }
@@ -98,9 +100,6 @@
         // JSON parsing failed
         [btcbarStatusItem setTitle:@"json err"];
     }
-
-    [receivedData setLength:0];
-    results = [[NSDictionary alloc] init];
 }
 
 
