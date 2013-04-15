@@ -78,7 +78,8 @@
     
     // Parse the JSON into results
     NSError *jsonParsingError = nil;
-    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:receivedData options:0 error:&jsonParsingError];
+    NSDictionary *results = [[NSDictionary alloc] init];
+    results = [NSJSONSerialization JSONObjectWithData:receivedData options:0 error:&jsonParsingError];
 
     // Create dictionary from JSON response
     if(results) {
@@ -88,6 +89,7 @@
 
         // See if it succeeded
         if([resultsStatus isEqualToString:@"success"]) {
+            NSLog(@"%@" , [[[results objectForKey:@"return"] objectForKey:@"last"] objectForKey:@"display"]);
             [btcbarStatusItem setTitle:[[[results objectForKey:@"return"] objectForKey:@"last"] objectForKey:@"display"]];
         } else {
             [btcbarStatusItem setTitle:@"mtgox err"];
@@ -96,6 +98,9 @@
         // JSON parsing failed
         [btcbarStatusItem setTitle:@"json err"];
     }
+
+    [receivedData setLength:0];
+    results = [[NSDictionary alloc] init];
 }
 
 
