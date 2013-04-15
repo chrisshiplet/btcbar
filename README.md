@@ -5,6 +5,8 @@ A tiny status bar widget for OS X that displays MtGox's latest USD-BTC price
 
 ## Screenshot
 
+Here is how btcbar looks in your status bar:
+
 ![Screenshot](https://raw.github.com/nearengine/btcbar/master/Resources/screenshot.png)
 
 ## Installation
