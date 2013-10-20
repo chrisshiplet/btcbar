@@ -17,7 +17,7 @@ Simply place btcbar.app in your `/Applications` folder, and optionally add it to
 
 The current version of btcbar (2.0.0) can be downloaded here:
 
-https://github.com/nearengine/btcbar/blob/master/Release/btcbar_2_0_0.zip?raw=true
+https://github.com/nearengine/btcbar/releases/download/v2.0.0/btcbar_2_0_0.zip
 
 It requires OS X 10.7+ and a 64-bit processor.
 
