@@ -1,13 +1,17 @@
 btcbar
 ======
 
-A tiny status bar widget for OS X that displays the latest USD-BTC spot price from MtGox, Bitstamp, and Coinbase.
+A tiny status bar widget for OS X that displays the latest USD/BTC spot price from MtGox, Bitstamp, and Coinbase.
 
 ## Screenshot
 
 Here is how btcbar looks in your status bar:
 
 ![Screenshot](https://raw.github.com/nearengine/btcbar/master/Resources/screenshot.png)
+
+And how you can select a ticker:
+
+![Menu Screenshot](https://raw.github.com/nearengine/btcbar/master/Resources/screenshot2.png)
 
 ## Installation
 
@@ -25,16 +29,15 @@ It requires OS X 10.7+ and a 64-bit processor.
 
 ### 2.0.0
 
-Version 2 adds Bitstamp and Coinbase, and a little more backend abstraction so it will be easier to add additional tickers in the future.
+Adds Bitstamp and Coinbase, and a little better backend abstraction so it will be easier to add future tickers.
 
 TODO:
-
 * Live updating prices for each menu item in the dropdown
-* More abstraction of tickers
+* More robust abstraction of tickers/dynamic menu
 
 ### 1.0.0
 
-Version 1.0 is the first release, which updates from MtGox's ticker API.
+The first release, which uses MtGox's USD ticker API.
 
 ## Donate
 
