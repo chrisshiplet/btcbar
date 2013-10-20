@@ -5,21 +5,31 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "MtGoxFetcher.h"
+#import "BitStampUSDFetcher.h"
+#import "CoinbaseUSDFetcher.h"
+
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     IBOutlet NSMenu *btcbarMenu;
     NSStatusItem *btcbarStatusItem;
     NSImage *btcbarStatusImage;
     NSImage *btcbarHighlightStatusImage;
-    NSTimer *updateTimer;
-    NSURLConnection *connection;
-    NSMutableData *receivedData;
+    NSTimer *updateViewTimer;
+    NSTimer *updateDataTimer;
+    NSUserDefaults *prefs;
+    NSString *webUrl;
+    MtGoxFetcher *mt_gox;
+    BitStampUSDFetcher *bitstamp_usd;
+    CoinbaseUSDFetcher *coinbase_usd;
 }
 
-- (void)updateMenuBar;
+@property (assign) IBOutlet NSMenu *menu;
 
-- (IBAction)menuActionMtGox:(id)sender;
+- (IBAction)menuActionSetTicker:(id)sender;
+- (IBAction)menuActionBrowser:(id)sender;
 - (IBAction)menuActionQuit:(id)sender;
 
-- (void)updateTimerAction:(NSTimer*)timer;
+- (void)updateViewTimerAction:(NSTimer*)timer;
+- (void)updateDataTimerAction:(NSTimer*)timer;
 
 @end
