@@ -34,7 +34,7 @@
     _ticker = tickerString;
     
     // Trigger notification to update ticker
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ticker_update" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"btcbar_ticker_update" object:self];
 }
 
 // Initiates an asyncronous HTTP connection

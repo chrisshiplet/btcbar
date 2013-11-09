@@ -22,7 +22,7 @@
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(handleTickerNotification:)
-     name:@"ticker_update"
+     name:@"btcbar_ticker_update"
      object:nil];
     
     // Pass each ticker object into a dictionary, get first updates
@@ -50,14 +50,14 @@
     for(id <Fetcher> ticker in tickers)
     {
         NSUInteger tag = [tickers indexOfObject:ticker];
-        NSMenuItem *new_menuitem = [[NSMenuItem alloc] initWithTitle:[ticker ticker_menu] action:@selector(menuActionSetTicker:) keyEquivalent:[NSString stringWithFormat:@"%lu", (unsigned long)tag+1]];
+        NSMenuItem *new_menuitem = [[NSMenuItem alloc] initWithTitle:[ticker ticker_menu] action:@selector(menuActionSetTicker:) keyEquivalent:@""];
         [new_menuitem setTag:tag];
         [btcbarMainMenu addItem:new_menuitem];
     }
     
     // Add the separator, Open in Browser, and Quit items to main menu
     [btcbarMainMenu addItem:[NSMenuItem separatorItem]];
-    [btcbarMainMenu addItem:[[NSMenuItem alloc] initWithTitle:@"Open in Browser" action:@selector(menuActionBrowser:) keyEquivalent:@"o"]];
+    [btcbarMainMenu addItem:[[NSMenuItem alloc] initWithTitle:@"Open in Browser" action:@selector(menuActionBrowser:) keyEquivalent:@""]];
     [btcbarMainMenu addItem:[[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(menuActionQuit:) keyEquivalent:@"q"]];
     
     // Set the default ticker's menu item state to checked
@@ -101,8 +101,8 @@
     // Update the requested ticker immediately
     [[tickers objectAtIndex:currentFetcherTag] requestUpdate];
     
-    //Force the status item value to update
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ticker_update" object:self];
+    // Force the status item value to update
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"btcbar_ticker_update" object:[tickers objectAtIndex:currentFetcherTag]];
 
 }
 
@@ -123,13 +123,17 @@
 // CALLBACKS
 //
 
-// Updates the status item with the latest ticker value
+// Handles Fetcher completion notifications
 -(void)handleTickerNotification:(NSNotification *)pNotification
 {
+    // Set the status item to the current Fetcher's ticker
     [btcbarStatusItem setTitle:[(id <Fetcher>)[tickers objectAtIndex:currentFetcherTag] ticker]];
+    
+    // Set the menu item of the notifying Fetcher to its latest ticker value
+    [[[btcbarMainMenu itemArray] objectAtIndex:[tickers indexOfObject:[pNotification object]]] setTitle:[NSString stringWithFormat:@"[%@] %@",[[pNotification object] ticker], [[pNotification object] ticker_menu]]];
 }
 
-// Requests for each ticker to update itself
+// Requests for each Fetcher to update itself
 - (void)updateDataTimerAction:(NSTimer*)timer
 {
     for (id <Fetcher> ticker in tickers)

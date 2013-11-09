@@ -19,24 +19,29 @@ Simply place btcbar.app in your `/Applications` folder, and optionally add it to
 
 ## Download
 
-The current version of btcbar (2.1.0) can be downloaded here:
+The current version of btcbar (2.1.1) can be downloaded here:
 
-https://github.com/nearengine/btcbar/releases/download/v2.1.0/btcbar_2_1_0.zip
+https://github.com/nearengine/btcbar/releases/download/v2.1.1/btcbar_2_1_1.zip
 
 It requires OS X 10.7+ and a 64-bit processor.
 
 ## Changelog
 
+### 2.1.1
+
+* Enables live prices in menu
+* Fixes a minor bug in the ticker switching code
+
 ### 2.1.0
 
 * New BTCe/USD ticker
 * Manually refreshes when a ticker is clicked
-* Decreased disk io/cpu time/power usage
-* Greatly increased modularity (tickers now have a protocol, menu is dynamically generated)
+* Decreases disk io/cpu time/power usage
+* Greatly increases modularity (tickers now have a protocol, menu is dynamically generated)
 
 ### 2.0.0
 
-Adds Bitstamp and Coinbase, and a little better backend abstraction so it will be easier to add future tickers.
+* Adds Bitstamp and Coinbase, and a little better backend abstraction so it will be easier to add future tickers.
 
 TODO:
 * Live updating prices for each menu item in the dropdown
@@ -44,7 +49,7 @@ TODO:
 
 ### 1.0.0
 
-The first release, which uses MtGox's USD ticker API.
+* The first release, which uses MtGox's USD ticker API.
 
 ## Donate
 
