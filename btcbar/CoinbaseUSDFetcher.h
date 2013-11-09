@@ -4,14 +4,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Fetcher.h"
 
-@interface CoinbaseUSDFetcher : NSObject<NSURLConnectionDelegate>
+@interface CoinbaseUSDFetcher : NSObject<Fetcher, NSURLConnectionDelegate>
 {
     NSMutableData *_responseData;
 }
 
-@property NSString* ticker;
-@property NSString* url;
+@property (nonatomic) NSString* ticker;
+@property (nonatomic) NSString* ticker_menu;
+@property (nonatomic) NSString* url;
 
 - (void)requestUpdate;
 

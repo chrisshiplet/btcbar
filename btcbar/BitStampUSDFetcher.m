@@ -7,12 +7,13 @@
 
 @implementation BitStampUSDFetcher
 
-@synthesize ticker;
-
 - (id) init
 {
     if (self = [super init])
     {
+        // Menu Item Name
+        [self setTicker_menu:@"BitStampUSD"];
+        
         // Default ticker value
         [self setTicker:@""];
         
@@ -24,6 +25,16 @@
     }
     
     return self;
+}
+
+// Override Ticker setter to trigger status item update
+- (void)setTicker:(NSString *)tickerString
+{
+    // Update the ticker value
+    _ticker = tickerString;
+    
+    // Trigger notification to update ticker
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ticker_update" object:self];
 }
 
 // Initiates an asyncronous HTTP connection
@@ -70,7 +81,7 @@
     // Results parsed successfully from JSON
     if(results)
     {
-        // Get MtGox API status
+        // Get API status
         NSString *resultsStatus = [results objectForKey:@"last"];
         
         // If API call succeeded update the ticker...
@@ -82,14 +93,14 @@
         else
         {
             NSLog(@"BitStampUSDFetcher: api error");
-            [self setTicker:@"BitStampUSDFetcher: api error"];
+            [self setTicker:@"api error"];
         }
     }
     // JSON parsing failed
     else
     {
         NSLog(@"BitStampUSDFetcher: json error");
-        [self setTicker:@"BitStampUSDFetcher: json error"];
+        [self setTicker:@"json error"];
     }
 }
 
@@ -97,7 +108,7 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     NSLog(@"BitStampUSDFetcher: %@", error);
-    [self setTicker:@"BitStampUSDFetcher: connection error"];
+    [self setTicker:@"connection error"];
 }
 
 @end

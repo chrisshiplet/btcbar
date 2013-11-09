@@ -9,46 +9,70 @@
 
 
 //
-// INITIALIZE STATUS BAR ITEM
+// ENTRY & EXIT
 //
 
+// Status item initialization
 - (void)awakeFromNib
 {
-    // Load ticker preference
+    // Load ticker preference from disk
     prefs = [NSUserDefaults standardUserDefaults];
     
-    // If preference does not exist, default to MtGoxUSD
-    if (![prefs objectForKey:@"btcbar_ticker"])
-        [prefs setObject:@"MtGoxUSD" forKey:@"btcbar_ticker"];
+    // Register update notifications for tickers
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(handleTickerNotification:)
+     name:@"ticker_update"
+     object:nil];
     
-    // Set NSOnState for the selected ticker in the menu
-    for (NSMenuItem *menuitem in _menu.itemArray)
-        if ([menuitem.title isEqualToString:[prefs objectForKey:@"btcbar_ticker"]])
-            [menuitem setState:NSOnState];
+    // Pass each ticker object into a dictionary, get first updates
+    tickers = [NSMutableArray arrayWithObjects:
+               [[BitStampUSDFetcher alloc] init],
+               [[BTCeUSDFetcher alloc] init],
+               [[CoinbaseUSDFetcher alloc] init],
+               [[MtGoxUSDFetcher alloc] init],
+               nil];
     
-    // Initialize each ticker and get first updates
-    mt_gox = [[MtGoxFetcher alloc] init];
-    bitstamp_usd = [[BitStampUSDFetcher alloc] init];
-    coinbase_usd = [[CoinbaseUSDFetcher alloc] init];
     
-    // Initialize our status bar item with flexible width
+    // If ticker preference does not exist, default to 0
+    if (![prefs integerForKey:@"btcbar_ticker"])
+        [prefs setInteger:0 forKey:@"btcbar_ticker"];
+    currentFetcherTag = [prefs integerForKey:@"btcbar_ticker"];
+    
+    // If ticker preference exceeds the bounds of `tickers`, default to 0
+    if (currentFetcherTag < 0 || currentFetcherTag >= [tickers count])
+        currentFetcherTag = 0;
+    
+    // Initialize main menu
+    btcbarMainMenu = [[NSMenu alloc] initWithTitle:@"loading..."];
+    
+    // Add each loaded ticker object to main menu
+    for(id <Fetcher> ticker in tickers)
+    {
+        NSUInteger tag = [tickers indexOfObject:ticker];
+        NSMenuItem *new_menuitem = [[NSMenuItem alloc] initWithTitle:[ticker ticker_menu] action:@selector(menuActionSetTicker:) keyEquivalent:[NSString stringWithFormat:@"%lu", (unsigned long)tag+1]];
+        [new_menuitem setTag:tag];
+        [btcbarMainMenu addItem:new_menuitem];
+    }
+    
+    // Add the separator, Open in Browser, and Quit items to main menu
+    [btcbarMainMenu addItem:[NSMenuItem separatorItem]];
+    [btcbarMainMenu addItem:[[NSMenuItem alloc] initWithTitle:@"Open in Browser" action:@selector(menuActionBrowser:) keyEquivalent:@"o"]];
+    [btcbarMainMenu addItem:[[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(menuActionQuit:) keyEquivalent:@"q"]];
+    
+    // Set the default ticker's menu item state to checked
+    [[btcbarMainMenu.itemArray objectAtIndex:currentFetcherTag] setState:NSOnState];
+    
+    // Initialize status bar item with flexible width
     btcbarStatusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 
-    // Set Image
-    btcbarStatusImage = [NSImage imageNamed:@"btclogo"];
-    [btcbarStatusItem setImage:btcbarStatusImage];
+    // Set status bar image and highlighted image
+    [btcbarStatusItem setImage:[NSImage imageNamed:@"btclogo"]];
+    [btcbarStatusItem setAlternateImage:[NSImage imageNamed:@"btclogoAlternate"]];
 
-    // Set Alternate (Highlighted state) Image
-    btcbarHighlightStatusImage = [NSImage imageNamed:@"btclogoAlternate"];
-    [btcbarStatusItem setAlternateImage:btcbarHighlightStatusImage];
-
-    // Set options on click
+    // Set menu options on click
     [btcbarStatusItem setHighlightMode:YES];
-    [btcbarStatusItem setMenu:btcbarMenu];
-
-    // Setup timer to update menu bar every other second
-    updateViewTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(updateViewTimerAction:) userInfo:nil repeats:YES];
-    [self updateViewTimerAction:updateViewTimer];
+    [btcbarStatusItem setMenu:btcbarMainMenu];
     
     // Setup timer to update all tickers every 10 seconds
     updateDataTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateDataTimerAction:) userInfo:nil repeats:YES];
@@ -56,37 +80,39 @@
 
 
 //
-// MENU OUTLETS
-//
+// MENUITEM ACTIONS
 //
 
-// Outlet for menu items which change current ticker
+// Action for menu items which change current ticker
 - (void)menuActionSetTicker:(id)sender
 {
-    // Cast sender to a menu item
-    NSMenuItem *senderItem = (NSMenuItem *)sender;
-    
     // Set all menu items to "off" state
-    for (NSMenuItem *menuitem in _menu.itemArray)
+    for (NSMenuItem *menuitem in btcbarMainMenu.itemArray)
         [menuitem setState:NSOffState];
     
     // Set this menu item to "on" state
     [sender setState:NSOnState];
     
     // Update ticker preference
-    [prefs setObject:senderItem.title forKey:@"btcbar_ticker"];
+    currentFetcherTag = [sender tag];
+    [prefs setInteger:currentFetcherTag forKey:@"btcbar_ticker"];
+    [prefs synchronize];
     
-    // Force the status item value and website button to update
-    [self updateViewTimerAction:updateViewTimer];
+    // Update the requested ticker immediately
+    [[tickers objectAtIndex:currentFetcherTag] requestUpdate];
+    
+    //Force the status item value to update
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ticker_update" object:self];
+
 }
 
-// "Open in Browser" outlet
+// "Open in Browser" action
 - (void)menuActionBrowser:(id)sender
 {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:webUrl]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[(id <Fetcher>)[tickers objectAtIndex:currentFetcherTag] url]]];
 }
 
-// "Quit" outlet
+// "Quit" action
 - (void)menuActionQuit:(id)sender
 {
     [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
@@ -94,43 +120,20 @@
 
 
 //
-// TIMER CALLBACKS
+// CALLBACKS
 //
 
-// Updates the status item with one of the tickers, depending on which one the user has selected
-// Updates the link that the "Open in Browser" menu item uses
-- (void)updateViewTimerAction:(NSTimer*)timer
+// Updates the status item with the latest ticker value
+-(void)handleTickerNotification:(NSNotification *)pNotification
 {
-    NSString *tickerSetting = [prefs stringForKey:@"btcbar_ticker"];
-    
-    if ([tickerSetting isEqualToString:@"MtGoxUSD"])
-    {
-        [btcbarStatusItem setTitle:mt_gox.ticker];
-        webUrl = mt_gox.url;
-    }
-    else if ([tickerSetting isEqualToString:@"BitstampUSD"])
-    {
-        [btcbarStatusItem setTitle:bitstamp_usd.ticker];
-        webUrl = bitstamp_usd.url;
-    }
-    else if ([tickerSetting isEqualToString:@"CoinbaseUSD"])
-    {
-        [btcbarStatusItem setTitle:coinbase_usd.ticker];
-        webUrl = coinbase_usd.url;
-    }
-    else
-    {
-        [btcbarStatusItem setTitle:@"invalid default"];
-        webUrl = @"";
-    }
+    [btcbarStatusItem setTitle:[(id <Fetcher>)[tickers objectAtIndex:currentFetcherTag] ticker]];
 }
 
 // Requests for each ticker to update itself
 - (void)updateDataTimerAction:(NSTimer*)timer
 {
-    [mt_gox requestUpdate];
-    [bitstamp_usd requestUpdate];
-    [coinbase_usd requestUpdate];
+    for (id <Fetcher> ticker in tickers)
+        [ticker requestUpdate];
 }
 
 @end

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4510" systemVersion="13A598" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A598" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1060" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4510"/>
+        <deployment defaultVersion="1070" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -52,47 +52,7 @@
                 </menuItem>
             </items>
         </menu>
-        <customObject id="494" customClass="AppDelegate">
-            <connections>
-                <outlet property="btcbarMenu" destination="543" id="550"/>
-                <outlet property="menu" destination="543" id="rZH-q5-kac"/>
-            </connections>
-        </customObject>
+        <customObject id="494" customClass="AppDelegate"/>
         <customObject id="420" customClass="NSFontManager"/>
-        <menu id="543">
-            <items>
-                <menuItem title="BitstampUSD" id="u2j-5R-7GJ">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="menuActionSetTicker:" target="494" id="luF-9g-oZL"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="CoinbaseUSD" id="Bha-AC-mUS">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="menuActionSetTicker:" target="494" id="AE6-5l-AgQ"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="MtGoxUSD" id="544">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="menuActionSetTicker:" target="494" id="7X8-4y-Jht"/>
-                    </connections>
-                </menuItem>
-                <menuItem isSeparatorItem="YES" id="3VF-HZ-hDp"/>
-                <menuItem title="Open in Browser" id="oqC-HN-zaA">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="menuActionBrowser:" target="494" id="N6T-qZ-f3k"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="Quit" id="545">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="menuActionQuit:" target="494" id="552"/>
-                    </connections>
-                </menuItem>
-            </items>
-        </menu>
     </objects>
 </document>

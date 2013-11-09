@@ -1,12 +1,12 @@
 //
-//  BitStampUSDFetcher.h
+//  MtGoxUSDFetcher.h
 //  btcbar
 //
 
 #import <Foundation/Foundation.h>
 #import "Fetcher.h"
 
-@interface BitStampUSDFetcher : NSObject<Fetcher, NSURLConnectionDelegate>
+@interface MtGoxUSDFetcher : NSObject<Fetcher, NSURLConnectionDelegate>
 {
     NSMutableData *_responseData;
 }
