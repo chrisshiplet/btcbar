@@ -51,6 +51,12 @@ TODO:
 
 * The first release, which uses MtGox's USD ticker API.
 
+## License
+
+This project currently retains my copyright, although I am considering moving to a FOSS license as it matures.
+
+The source is provided for inspection, considering the nature of Bitcoin. You are free to download and build for personal use, but please don't redistribute this project yet.
+
 ## Donate
 
 If for some reason you feel like donating a few micro btc to future development, those should go here:
