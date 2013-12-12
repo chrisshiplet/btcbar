@@ -1,24 +1,24 @@
 //
-//  CoinbaseUSDFetcher.m
+//  MtGoxUSDFetcher.m
 //  btcbar
 //
 
-#import "CoinbaseUSDFetcher.h"
+#import "MtGoxUSDFetcher.h"
 
-@implementation CoinbaseUSDFetcher
+@implementation MtGoxUSDFetcher
 
-- (id)init
+- (id) init
 {
     if (self = [super init])
     {
         // Menu Item Name
-        [self setTicker_menu:@"CoinbaseUSD"];
+        [self setTicker_menu:@"MtGoxUSD"];
         
         // Default ticker value
         [self setTicker:@""];
         
         // Website location
-        [self setUrl:@"https://coinbase.com/"];
+        [self setUrl:@"https://www.mtgox.com/"];
         
         // Immediately request first update
         [self requestUpdate];
@@ -40,10 +40,10 @@
 // Initiates an asyncronous HTTP connection
 - (void)requestUpdate
 {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://coinbase.com/api/v1/prices/spot_rate"]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://data.mtgox.com/api/2/BTCUSD/money/ticker_fast"]];
     
     // Set the request's user agent
-    [request addValue:@"btcbar/2.0 (CoinbaseUSDFetcher)" forHTTPHeaderField:@"User-Agent"];
+    [request addValue:@"btcbar/2.0 (MtGoxUSDFetcher)" forHTTPHeaderField:@"User-Agent"];
     
     // Initialize a connection from our request
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -82,24 +82,27 @@
     if(results)
     {
         // Get API status
-        NSString *resultsStatus = [results objectForKey:@"amount"];
+        NSString *resultsStatus = [results objectForKey:@"result"];
         
         // If API call succeeded update the ticker...
-        if(resultsStatus)
+        if([resultsStatus isEqualToString:@"success"])
         {
-            [self setTicker:[@"$" stringByAppendingString:resultsStatus]];
+            NSDecimalNumber *resultsStatusNumber = [NSDecimalNumber decimalNumberWithString:[[[results objectForKey:@"data"] objectForKey:@"last"] objectForKey:@"value"]];
+            NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
+            [currencyStyle setNumberStyle:NSNumberFormatterCurrencyStyle];
+            [self setTicker:[currencyStyle stringFromNumber:resultsStatusNumber]];
         }
         // Otherwise log an error...
         else
         {
-            NSLog(@"CoinbaseUSDFetcher: api error");
+            NSLog(@"MtGoxUSDFetcher: api error");
             [self setTicker:@"api error"];
         }
     }
     // JSON parsing failed
     else
     {
-        NSLog(@"CoinbaseUSDFetcher: json error");
+        NSLog(@"MtGoxUSDFetcher: json error");
         [self setTicker:@"json error"];
     }
 }
@@ -107,7 +110,7 @@
 // HTTP request failed
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    NSLog(@"CoinbaseUSDFetcher: %@", error);
+    NSLog(@"MtGoxFetcher: %@", error);
     [self setTicker:@"connection error"];
 }
 

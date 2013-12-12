@@ -1,24 +1,24 @@
 //
-//  BTCeUSDFetcher.m
+//  CoinbaseUSDFetcher.m
 //  btcbar
 //
 
-#import "BTCeUSDFetcher.h"
+#import "CoinbaseUSDFetcher.h"
 
-@implementation BTCeUSDFetcher
+@implementation CoinbaseUSDFetcher
 
-- (id) init
+- (id)init
 {
     if (self = [super init])
     {
         // Menu Item Name
-        [self setTicker_menu:@"BTCeUSD"];
+        [self setTicker_menu:@"CoinbaseUSD"];
         
         // Default ticker value
         [self setTicker:@""];
         
         // Website location
-        [self setUrl:@"https://btc-e.com/"];
+        [self setUrl:@"https://coinbase.com/"];
         
         // Immediately request first update
         [self requestUpdate];
@@ -40,10 +40,10 @@
 // Initiates an asyncronous HTTP connection
 - (void)requestUpdate
 {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://btc-e.com/api/2/btc_usd/ticker"]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://coinbase.com/api/v1/prices/spot_rate"]];
     
     // Set the request's user agent
-    [request addValue:@"btcbar/2.0 (BTCeUSDFetcher)" forHTTPHeaderField:@"User-Agent"];
+    [request addValue:@"btcbar/2.0 (CoinbaseUSDFetcher)" forHTTPHeaderField:@"User-Agent"];
     
     // Initialize a connection from our request
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -81,21 +81,28 @@
     // Results parsed successfully from JSON
     if(results)
     {
+        // Get API status
+        NSString *resultsStatus = [results objectForKey:@"amount"];
         
-        if ([[results objectForKey:@"ticker"] objectForKey:@"last"])
+        // If API call succeeded update the ticker...
+        if(resultsStatus)
         {
-            [self setTicker:[NSString localizedStringWithFormat:@"$%.2f",[[[results objectForKey:@"ticker"] objectForKey:@"last"] floatValue]]];
+            NSDecimalNumber *resultsStatusNumber = [NSDecimalNumber decimalNumberWithString:resultsStatus];
+            NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
+            [currencyStyle setNumberStyle:NSNumberFormatterCurrencyStyle];
+            [self setTicker:[currencyStyle stringFromNumber:resultsStatusNumber]];
         }
+        // Otherwise log an error...
         else
         {
-            NSLog(@"BTCeUSDFetcher: api error");
+            NSLog(@"CoinbaseUSDFetcher: api error");
             [self setTicker:@"api error"];
         }
     }
     // JSON parsing failed
     else
     {
-        NSLog(@"BTCeUSDFetcher: json error");
+        NSLog(@"CoinbaseUSDFetcher: json error");
         [self setTicker:@"json error"];
     }
 }
@@ -103,7 +110,7 @@
 // HTTP request failed
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    NSLog(@"BTCeUSDFetcher: %@", error);
+    NSLog(@"CoinbaseUSDFetcher: %@", error);
     [self setTicker:@"connection error"];
 }
 

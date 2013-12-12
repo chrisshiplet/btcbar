@@ -1,24 +1,24 @@
 //
-//  MtGoxUSDFetcher.m
+//  BTCeUSDFetcher.m
 //  btcbar
 //
 
-#import "MtGoxUSDFetcher.h"
+#import "BTCeUSDFetcher.h"
 
-@implementation MtGoxUSDFetcher
+@implementation BTCeUSDFetcher
 
 - (id) init
 {
     if (self = [super init])
     {
         // Menu Item Name
-        [self setTicker_menu:@"MtGoxUSD"];
+        [self setTicker_menu:@"BTCeUSD"];
         
         // Default ticker value
         [self setTicker:@""];
         
         // Website location
-        [self setUrl:@"https://www.mtgox.com/"];
+        [self setUrl:@"https://btc-e.com/"];
         
         // Immediately request first update
         [self requestUpdate];
@@ -40,10 +40,10 @@
 // Initiates an asyncronous HTTP connection
 - (void)requestUpdate
 {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://data.mtgox.com/api/2/BTCUSD/money/ticker_fast"]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://btc-e.com/api/2/btc_usd/ticker"]];
     
     // Set the request's user agent
-    [request addValue:@"btcbar/2.0 (MtGoxUSDFetcher)" forHTTPHeaderField:@"User-Agent"];
+    [request addValue:@"btcbar/2.0 (BTCeUSDFetcher)" forHTTPHeaderField:@"User-Agent"];
     
     // Initialize a connection from our request
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -81,26 +81,23 @@
     // Results parsed successfully from JSON
     if(results)
     {
-        // Get API status
-        NSString *resultsStatus = [results objectForKey:@"result"];
         
-        // If API call succeeded update the ticker...
-        if([resultsStatus isEqualToString:@"success"])
+        if ([[results objectForKey:@"ticker"] objectForKey:@"last"])
         {
-            //NSLog(@"MtGoxFetcher: %@", [[[results objectForKey:@"data"] objectForKey:@"last"] objectForKey:@"display"]);
-            [self setTicker:[[[results objectForKey:@"data"] objectForKey:@"last"] objectForKey:@"display"]];
+            NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
+            [currencyStyle setNumberStyle:NSNumberFormatterCurrencyStyle];
+            [self setTicker:[currencyStyle stringFromNumber:[[results objectForKey:@"ticker"] objectForKey:@"last"]]];
         }
-        // Otherwise log an error...
         else
         {
-            NSLog(@"MtGoxUSDFetcher: api error");
+            NSLog(@"BTCeUSDFetcher: api error");
             [self setTicker:@"api error"];
         }
     }
     // JSON parsing failed
     else
     {
-        NSLog(@"MtGoxUSDFetcher: json error");
+        NSLog(@"BTCeUSDFetcher: json error");
         [self setTicker:@"json error"];
     }
 }
@@ -108,7 +105,7 @@
 // HTTP request failed
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    NSLog(@"MtGoxFetcher: %@", error);
+    NSLog(@"BTCeUSDFetcher: %@", error);
     [self setTicker:@"connection error"];
 }
 

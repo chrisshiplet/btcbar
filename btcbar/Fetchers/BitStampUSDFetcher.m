@@ -87,7 +87,10 @@
         // If API call succeeded update the ticker...
         if(resultsStatus)
         {
-            [self setTicker:[@"$" stringByAppendingString:resultsStatus]];
+            NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
+            [currencyStyle setNumberStyle:NSNumberFormatterCurrencyStyle];
+            resultsStatus = [currencyStyle stringFromNumber:[NSDecimalNumber decimalNumberWithString:resultsStatus]];
+            [self setTicker:resultsStatus];
         }
         // Otherwise log an error...
         else

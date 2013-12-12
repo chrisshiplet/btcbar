@@ -19,13 +19,19 @@ Simply place btcbar.app in your `/Applications` folder, and optionally add it to
 
 ## Download
 
-The current version of btcbar (2.1.1) can be downloaded here:
+The current version of btcbar (2.1.2) can be downloaded here:
 
-https://github.com/nearengine/btcbar/releases/download/v2.1.1/btcbar_2_1_1.zip
+https://github.com/nearengine/btcbar/releases/download/v2.1.2/btcbar_2_1_2.zip
 
 It requires OS X 10.7+ and a 64-bit processor.
 
 ## Changelog
+
+### 2.1.2
+
+* Uses new HTTPS MtGox API to fix "json error"
+* Organized repo and project better
+* Standardizes use of commas in tickers
 
 ### 2.1.1
 
