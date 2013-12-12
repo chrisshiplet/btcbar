@@ -7,18 +7,18 @@
 
 @implementation BitStampUSDFetcher
 
-- (id) init
+- (id)init
 {
     if (self = [super init])
     {
         // Menu Item Name
-        [self setTicker_menu:@"BitStampUSD"];
+        self.ticker_menu = @"BitStampUSD";
         
         // Default ticker value
-        [self setTicker:@""];
+        self.ticker = @"";
         
         // Website location
-        [self setUrl:@"https://www.bitstamp.net/"];
+        self.url = @"https://www.bistamp.net/";
         
         // Immediately request first update
         [self requestUpdate];
@@ -30,6 +30,7 @@
 // Override Ticker setter to trigger status item update
 - (void)setTicker:(NSString *)tickerString
 {
+    NSLog(@"Testing");
     // Update the ticker value
     _ticker = tickerString;
     
@@ -55,17 +56,17 @@
 // Initializes data storage on request response
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    _responseData = [[NSMutableData alloc] init];
+    self.responseData = [[NSMutableData alloc] init];
 }
 
 // Appends response data
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    [_responseData appendData:data];
+    [self.responseData appendData:data];
 }
 
 // Indiciate no caching
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse*)cachedResponse
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
 {
     return nil;
 }
@@ -76,7 +77,7 @@
     // Parse the JSON into results
     NSError *jsonParsingError = nil;
     NSDictionary *results = [[NSDictionary alloc] init];
-    results = [NSJSONSerialization JSONObjectWithData:_responseData options:0 error:&jsonParsingError];
+    results = [NSJSONSerialization JSONObjectWithData:self.responseData options:0 error:&jsonParsingError];
     
     // Results parsed successfully from JSON
     if(results)
@@ -88,9 +89,9 @@
         if(resultsStatus)
         {
             NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
-            [currencyStyle setNumberStyle:NSNumberFormatterCurrencyStyle];
+            currencyStyle.numberStyle = NSNumberFormatterCurrencyStyle;
             resultsStatus = [currencyStyle stringFromNumber:[NSDecimalNumber decimalNumberWithString:resultsStatus]];
-            [self setTicker:resultsStatus];
+            self.ticker = resultsStatus;
         }
         // Otherwise log an error...
         else

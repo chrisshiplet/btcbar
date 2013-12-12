@@ -49,9 +49,8 @@
     // Add each loaded ticker object to main menu
     for(id <Fetcher> ticker in tickers)
     {
-        NSUInteger tag = [tickers indexOfObject:ticker];
         NSMenuItem *new_menuitem = [[NSMenuItem alloc] initWithTitle:[ticker ticker_menu] action:@selector(menuActionSetTicker:) keyEquivalent:@""];
-        [new_menuitem setTag:tag];
+        new_menuitem.tag = [tickers indexOfObject:ticker];
         [btcbarMainMenu addItem:new_menuitem];
     }
     
@@ -67,12 +66,12 @@
     btcbarStatusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 
     // Set status bar image and highlighted image
-    [btcbarStatusItem setImage:[NSImage imageNamed:@"btclogo"]];
-    [btcbarStatusItem setAlternateImage:[NSImage imageNamed:@"btclogoAlternate"]];
+    btcbarStatusItem.image = [NSImage imageNamed:@"btclogo"];
+    btcbarStatusItem.alternateImage = [NSImage imageNamed:@"btclogoAlternate"];
 
     // Set menu options on click
-    [btcbarStatusItem setHighlightMode:YES];
-    [btcbarStatusItem setMenu:btcbarMainMenu];
+    btcbarStatusItem.highlightMode = YES;
+    btcbarStatusItem.menu = btcbarMainMenu;
     
     // Setup timer to update all tickers every 10 seconds
     updateDataTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateDataTimerAction:) userInfo:nil repeats:YES];
@@ -88,7 +87,7 @@
 {
     // Set all menu items to "off" state
     for (NSMenuItem *menuitem in btcbarMainMenu.itemArray)
-        [menuitem setState:NSOffState];
+        menuitem.state = NSOffState;
     
     // Set this menu item to "on" state
     [sender setState:NSOnState];
@@ -127,14 +126,14 @@
 -(void)handleTickerNotification:(NSNotification *)pNotification
 {
     // Set the status item to the current Fetcher's ticker
-    [btcbarStatusItem setTitle:[(id <Fetcher>)[tickers objectAtIndex:currentFetcherTag] ticker]];
+    btcbarStatusItem.title = [(id <Fetcher>)[tickers objectAtIndex:currentFetcherTag] ticker];
     
     // Set the menu item of the notifying Fetcher to its latest ticker value
     [[[btcbarMainMenu itemArray] objectAtIndex:[tickers indexOfObject:[pNotification object]]] setTitle:[NSString stringWithFormat:@"[%@] %@",[[pNotification object] ticker], [[pNotification object] ticker_menu]]];
 }
 
 // Requests for each Fetcher to update itself
-- (void)updateDataTimerAction:(NSTimer*)timer
+- (void)updateDataTimerAction:(NSTimer *)timer
 {
     for (id <Fetcher> ticker in tickers)
         [ticker requestUpdate];

@@ -7,18 +7,18 @@
 
 @implementation BTCeUSDFetcher
 
-- (id) init
+- (id)init
 {
     if (self = [super init])
     {
         // Menu Item Name
-        [self setTicker_menu:@"BTCeUSD"];
+        self.ticker_menu = @"BTCeUSD";
         
         // Default ticker value
-        [self setTicker:@""];
+        self.ticker = @"";
         
         // Website location
-        [self setUrl:@"https://btc-e.com/"];
+        self.url = @"https://btc-e.com/";
         
         // Immediately request first update
         [self requestUpdate];
@@ -55,17 +55,17 @@
 // Initializes data storage on request response
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    _responseData = [[NSMutableData alloc] init];
+    self.responseData = [[NSMutableData alloc] init];
 }
 
 // Appends response data
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    [_responseData appendData:data];
+    [self.responseData appendData:data];
 }
 
 // Indiciate no caching
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse*)cachedResponse
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
 {
     return nil;
 }
@@ -76,7 +76,7 @@
     // Parse the JSON into results
     NSError *jsonParsingError = nil;
     NSDictionary *results = [[NSDictionary alloc] init];
-    results = [NSJSONSerialization JSONObjectWithData:_responseData options:0 error:&jsonParsingError];
+    results = [NSJSONSerialization JSONObjectWithData:self.responseData options:0 error:&jsonParsingError];
     
     // Results parsed successfully from JSON
     if(results)
@@ -85,8 +85,8 @@
         if ([[results objectForKey:@"ticker"] objectForKey:@"last"])
         {
             NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
-            [currencyStyle setNumberStyle:NSNumberFormatterCurrencyStyle];
-            [self setTicker:[currencyStyle stringFromNumber:[[results objectForKey:@"ticker"] objectForKey:@"last"]]];
+            currencyStyle.numberStyle = NSNumberFormatterCurrencyStyle;
+            self.ticker = [currencyStyle stringFromNumber:[[results objectForKey:@"ticker"] objectForKey:@"last"]];
         }
         else
         {

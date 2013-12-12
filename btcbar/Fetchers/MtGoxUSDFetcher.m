@@ -7,18 +7,18 @@
 
 @implementation MtGoxUSDFetcher
 
-- (id) init
+- (id)init
 {
     if (self = [super init])
     {
         // Menu Item Name
-        [self setTicker_menu:@"MtGoxUSD"];
+        self.ticker_menu = @"MtGoxUSD";
         
         // Default ticker value
-        [self setTicker:@""];
+        self.ticker = @"";
         
         // Website location
-        [self setUrl:@"https://www.mtgox.com/"];
+        self.url = @"https://www.mtgox.com/";
         
         // Immediately request first update
         [self requestUpdate];
@@ -55,17 +55,17 @@
 // Initializes data storage on request response
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    _responseData = [[NSMutableData alloc] init];
+    self.responseData = [[NSMutableData alloc] init];
 }
 
 // Appends response data
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    [_responseData appendData:data];
+    [self.responseData appendData:data];
 }
 
 // Indiciate no caching
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse*)cachedResponse
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
 {
     return nil;
 }
@@ -76,21 +76,21 @@
     // Parse the JSON into results
     NSError *jsonParsingError = nil;
     NSDictionary *results = [[NSDictionary alloc] init];
-    results = [NSJSONSerialization JSONObjectWithData:_responseData options:0 error:&jsonParsingError];
+    results = [NSJSONSerialization JSONObjectWithData:self.responseData options:0 error:&jsonParsingError];
     
     // Results parsed successfully from JSON
-    if(results)
+    if (results)
     {
         // Get API status
         NSString *resultsStatus = [results objectForKey:@"result"];
         
         // If API call succeeded update the ticker...
-        if([resultsStatus isEqualToString:@"success"])
+        if ([resultsStatus isEqualToString:@"success"])
         {
             NSDecimalNumber *resultsStatusNumber = [NSDecimalNumber decimalNumberWithString:[[[results objectForKey:@"data"] objectForKey:@"last"] objectForKey:@"value"]];
             NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
-            [currencyStyle setNumberStyle:NSNumberFormatterCurrencyStyle];
-            [self setTicker:[currencyStyle stringFromNumber:resultsStatusNumber]];
+            currencyStyle.numberStyle = NSNumberFormatterCurrencyStyle;
+            self.ticker = [currencyStyle stringFromNumber:resultsStatusNumber];
         }
         // Otherwise log an error...
         else
