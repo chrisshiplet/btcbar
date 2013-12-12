@@ -30,7 +30,7 @@ It requires OS X 10.7+ and a 64-bit processor.
 ### 2.1.2
 
 * Uses new HTTPS MtGox API to fix "json error"
-* Organized repo and project better
+* Better organization for repo and XCode project
 * Standardizes use of commas in tickers
 
 ### 2.1.1
