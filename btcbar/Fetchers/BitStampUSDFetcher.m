@@ -30,7 +30,6 @@
 // Override Ticker setter to trigger status item update
 - (void)setTicker:(NSString *)tickerString
 {
-    NSLog(@"Testing");
     // Update the ticker value
     _ticker = tickerString;
 
