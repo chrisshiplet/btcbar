@@ -14,9 +14,6 @@
         // Menu Item Name
         self.ticker_menu = @"BTCeUSD";
         
-        // Default ticker value
-        self.ticker = @"";
-        
         // Website location
         self.url = @"https://btc-e.com/";
         
@@ -90,23 +87,23 @@
         }
         else
         {
-            NSLog(@"BTCeUSDFetcher: api error");
-            [self setTicker:@"api error"];
+            self.error = [NSError errorWithDomain:@"com.nearengine.btcbar" code:0 userInfo:[NSDictionary dictionaryWithObjectsAndKeys: @"API Error", NSLocalizedDescriptionKey, @"The JSON received did not contain a result or the API returned an error.", NSLocalizedFailureReasonErrorKey, nil]];
+            self.ticker = nil;
         }
     }
     // JSON parsing failed
     else
     {
-        NSLog(@"BTCeUSDFetcher: json error");
-        [self setTicker:@"json error"];
+        self.error = [NSError errorWithDomain:@"com.nearengine.btcbar" code:0 userInfo:[NSDictionary dictionaryWithObjectsAndKeys: @"JSON Error", NSLocalizedDescriptionKey, @"Could not parse the JSON returned.", NSLocalizedFailureReasonErrorKey, nil]];
+        self.ticker = nil;
     }
 }
 
 // HTTP request failed
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    NSLog(@"BTCeUSDFetcher: %@", error);
-    [self setTicker:@"connection error"];
+    self.error = [NSError errorWithDomain:@"com.nearengine.btcbar" code:0 userInfo:[NSDictionary dictionaryWithObjectsAndKeys: @"Connection Error", NSLocalizedDescriptionKey, @"Could not connect to BTCe.", NSLocalizedFailureReasonErrorKey, nil]];
+    self.ticker = nil;
 }
 
 @end

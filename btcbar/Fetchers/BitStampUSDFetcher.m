@@ -14,9 +14,6 @@
         // Menu Item Name
         self.ticker_menu = @"BitStampUSD";
 
-        // Default ticker value
-        self.ticker = @"";
-
         // Website location
         self.url = @"https://www.bitstamp.net/";
 
@@ -95,23 +92,23 @@
         // Otherwise log an error...
         else
         {
-            NSLog(@"BitStampUSDFetcher: api error");
-            [self setTicker:@"api error"];
+            self.error = [NSError errorWithDomain:@"com.nearengine.btcbar" code:0 userInfo:[NSDictionary dictionaryWithObjectsAndKeys: @"API Error", NSLocalizedDescriptionKey, @"The JSON received did not contain a result or the API returned an error.", NSLocalizedFailureReasonErrorKey, nil]];
+            self.ticker = nil;
         }
     }
     // JSON parsing failed
     else
     {
-        NSLog(@"BitStampUSDFetcher: json error");
-        [self setTicker:@"json error"];
+        self.error = [NSError errorWithDomain:@"com.nearengine.btcbar" code:0 userInfo:[NSDictionary dictionaryWithObjectsAndKeys: @"JSON Error", NSLocalizedDescriptionKey, @"Could not parse the JSON returned.", NSLocalizedFailureReasonErrorKey, nil]];
+        self.ticker = nil;
     }
 }
 
 // HTTP request failed
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    NSLog(@"BitStampUSDFetcher: %@", error);
-    [self setTicker:@"connection error"];
+    self.error = [NSError errorWithDomain:@"com.nearengine.btcbar" code:0 userInfo:[NSDictionary dictionaryWithObjectsAndKeys: @"Connection Error", NSLocalizedDescriptionKey, @"Could not connect to BitStamp.", NSLocalizedFailureReasonErrorKey, nil]];
+    self.ticker = nil;
 }
 
 @end

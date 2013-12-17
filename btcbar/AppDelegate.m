@@ -66,7 +66,7 @@
     btcbarStatusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 
     // Set status bar image and highlighted image
-    btcbarStatusItem.image = [NSImage imageNamed:@"btclogo"];
+    btcbarStatusItem.image = [NSImage imageNamed:@"btclogoDim"];
     btcbarStatusItem.alternateImage = [NSImage imageNamed:@"btclogoAlternate"];
 
     // Set menu options on click
@@ -125,11 +125,35 @@
 // Handles Fetcher completion notifications
 -(void)handleTickerNotification:(NSNotification *)pNotification
 {
-    // Set the status item to the current Fetcher's ticker
-    btcbarStatusItem.title = [(id <Fetcher>)[tickers objectAtIndex:currentFetcherTag] ticker];
+    if ([[pNotification object] ticker] != nil)
+    {
+        // Set the menu item of the notifying Fetcher to its latest ticker value
+        [[[btcbarMainMenu itemArray] objectAtIndex:[tickers indexOfObject:[pNotification object]]] setTitle:[NSString stringWithFormat:@"[%@] %@",[[pNotification object] ticker], [[pNotification object] ticker_menu]]];
+    }
+    else
+    {
+        // Set the ticker value in the menu to the short error
+        [[[btcbarMainMenu itemArray] objectAtIndex:[tickers indexOfObject:[pNotification object]]] setTitle:[NSString stringWithFormat:@"[%@] %@",[[pNotification object] error].localizedDescription, [[pNotification object] ticker_menu]]];
+    }
     
-    // Set the menu item of the notifying Fetcher to its latest ticker value
-    [[[btcbarMainMenu itemArray] objectAtIndex:[tickers indexOfObject:[pNotification object]]] setTitle:[NSString stringWithFormat:@"[%@] %@",[[pNotification object] ticker], [[pNotification object] ticker_menu]]];
+    // If this notification is for the currently selected ticker, update the status item too
+    if ([pNotification object] == [tickers objectAtIndex:currentFetcherTag])
+    {
+        if ([[pNotification object] ticker] == nil)
+        {
+            btcbarStatusItem.title = nil;
+            btcbarStatusItem.image = [NSImage imageNamed:@"btclogoDim"];
+            btcbarStatusItem.toolTip = [NSString stringWithFormat: @"%@ Error: %@", [[pNotification object] ticker_menu], [[pNotification object] error].localizedFailureReason];
+        }
+        else
+        {
+            // Set the status item to the current Fetcher's ticker
+            btcbarStatusItem.title = [(id <Fetcher>)[tickers objectAtIndex:currentFetcherTag] ticker];
+            btcbarStatusItem.image = [NSImage imageNamed:@"btclogo"];
+            btcbarStatusItem.toolTip = nil;
+        }
+    }
+    
 }
 
 // Requests for each Fetcher to update itself

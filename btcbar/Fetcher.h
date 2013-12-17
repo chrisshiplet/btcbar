@@ -16,6 +16,9 @@
 // URL that the "Open in Browser" option opens
 @property (nonatomic) NSString* url;
 
+// Error message if ticker returns nil
+@property (nonatomic) NSError* error;
+
 // Trigger a refresh, update `ticker` when it completes
 - (void)requestUpdate;
 

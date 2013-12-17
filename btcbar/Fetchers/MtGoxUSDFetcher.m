@@ -14,9 +14,6 @@
         // Menu Item Name
         self.ticker_menu = @"MtGoxUSD";
         
-        // Default ticker value
-        self.ticker = @"";
-        
         // Website location
         self.url = @"https://www.mtgox.com/";
         
@@ -90,28 +87,29 @@
             NSDecimalNumber *resultsStatusNumber = [NSDecimalNumber decimalNumberWithString:[[[results objectForKey:@"data"] objectForKey:@"last"] objectForKey:@"value"]];
             NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
             currencyStyle.numberStyle = NSNumberFormatterCurrencyStyle;
+            self.error = nil;
             self.ticker = [currencyStyle stringFromNumber:resultsStatusNumber];
         }
         // Otherwise log an error...
         else
         {
-            NSLog(@"MtGoxUSDFetcher: api error");
-            [self setTicker:@"api error"];
+            self.error = [NSError errorWithDomain:@"com.nearengine.btcbar" code:0 userInfo:[NSDictionary dictionaryWithObjectsAndKeys: @"API Error", NSLocalizedDescriptionKey, @"The JSON received did not contain a result or the API returned an error.", NSLocalizedFailureReasonErrorKey, nil]];
+            self.ticker = nil;
         }
     }
     // JSON parsing failed
     else
     {
-        NSLog(@"MtGoxUSDFetcher: json error");
-        [self setTicker:@"json error"];
+        self.error = [NSError errorWithDomain:@"com.nearengine.btcbar" code:0 userInfo:[NSDictionary dictionaryWithObjectsAndKeys: @"JSON Error", NSLocalizedDescriptionKey, @"Could not parse the JSON returned.", NSLocalizedFailureReasonErrorKey, nil]];
+        self.ticker = nil;
     }
 }
 
 // HTTP request failed
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    NSLog(@"MtGoxFetcher: %@", error);
-    [self setTicker:@"connection error"];
+    self.error = [NSError errorWithDomain:@"com.nearengine.btcbar" code:0 userInfo:[NSDictionary dictionaryWithObjectsAndKeys: @"Connection Error", NSLocalizedDescriptionKey, @"Could not connect to MtGox.", NSLocalizedFailureReasonErrorKey, nil]];
+    self.ticker = nil;
 }
 
 @end
