@@ -86,6 +86,7 @@
         {
             NSDecimalNumber *resultsStatusNumber = [NSDecimalNumber decimalNumberWithString:resultsStatus];
             NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
+            currencyStyle.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
             currencyStyle.numberStyle = NSNumberFormatterCurrencyStyle;
             self.ticker = [currencyStyle stringFromNumber:resultsStatusNumber];
         }

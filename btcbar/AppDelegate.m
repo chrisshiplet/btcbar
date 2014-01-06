@@ -150,7 +150,7 @@
             // Set the status item to the current Fetcher's ticker
             btcbarStatusItem.title = [(id <Fetcher>)[tickers objectAtIndex:currentFetcherTag] ticker];
             btcbarStatusItem.image = [NSImage imageNamed:@"btclogo"];
-            btcbarStatusItem.toolTip = nil;
+            btcbarStatusItem.toolTip = [[tickers objectAtIndex:currentFetcherTag] ticker_menu];
         }
     }
     

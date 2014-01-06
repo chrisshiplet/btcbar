@@ -19,13 +19,18 @@ Simply place btcbar.app in your `/Applications` folder, and optionally add it to
 
 ## Download
 
-The current version of btcbar (2.1.2) can be downloaded here:
+The current version of btcbar (2.1.3) can be downloaded here:
 
-https://github.com/nearengine/btcbar/releases/download/v2.1.2/btcbar_2_1_2.zip
+https://github.com/nearengine/btcbar/releases/download/v2.1.3/btcbar_2_1_3.zip
 
 It requires OS X 10.7+ and a 64-bit processor.
 
 ## Changelog
+
+### 2.1.3
+
+* Fixes issue where the local currency code was displayed instead of the USD symbol
+* Improves error handling: if there is an error, the icon will fade and a descriptive error will be displayed in the tooltip when hovering over btcbar rather than taking up space in your menu bar
 
 ### 2.1.2
 
