@@ -1,7 +1,7 @@
 btcbar
 ======
 
-A tiny status bar widget for OS X that displays the latest USD/BTC spot price from BitStamp, BTCe, Coinbase, and MtGox.
+A tiny status bar widget for OS X that displays the latest USD/BTC spot price from BitStamp, BTCe, and Coinbase.
 
 ## Screenshot
 
