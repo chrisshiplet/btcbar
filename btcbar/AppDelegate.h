@@ -9,6 +9,7 @@
 #import "CoinbaseUSDFetcher.h"
 #import "BTCeUSDFetcher.h"
 #import "BitFinexUSDFetcher.h"
+#import "WinkDexUSDFetcher.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     NSMenu *btcbarMainMenu;
