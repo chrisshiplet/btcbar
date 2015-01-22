@@ -91,7 +91,7 @@
         {
             NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
             resultsStatus = [numberFormatter stringFromNumber:[NSDecimalNumber decimalNumberWithString:resultsStatus]];
-            resultsStatus = [NSString stringWithFormat:@"¥ %@", resultsStatus];
+            resultsStatus = [NSString stringWithFormat:@"¥%@", resultsStatus];
             
             self.ticker = resultsStatus;
         }
