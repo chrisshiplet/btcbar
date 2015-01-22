@@ -32,6 +32,7 @@
                [[CoinbaseUSDFetcher alloc] init],
                [[BitFinexUSDFetcher alloc] init],
                [[WinkDexUSDFetcher alloc] init],
+               [[OKCoinCYNFetcher alloc] init],
                nil];
     
     
