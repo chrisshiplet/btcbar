@@ -67,12 +67,12 @@
     // Initialize status bar item with flexible width
     btcbarStatusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 
-    // Set status bar image and highlighted image
-    btcbarStatusItem.image = [NSImage imageNamed:@"btclogoDim"];
-    btcbarStatusItem.alternateImage = [NSImage imageNamed:@"btclogoAlternate"];
+    // Set status bar image
+    NSImage *image = [NSImage imageNamed:@"btclogo"];
+    [image setTemplate:YES];
+    [btcbarStatusItem setImage:image];
 
     // Set menu options on click
-    btcbarStatusItem.highlightMode = YES;
     btcbarStatusItem.menu = btcbarMainMenu;
 
     // Setup timer to update all tickers every 10 seconds

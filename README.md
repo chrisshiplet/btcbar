@@ -30,6 +30,7 @@ It requires OS X 10.7+ and a 64-bit processor.
 ### 2.2.0
 
 * Adds BitFinexUSD, WinkDexUSD, HuobiCNY and OKCoinCNY
+* New status bar icon with Yosemite (dark theme) support
 
 ### 2.1.4
 
