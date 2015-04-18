@@ -8,16 +8,20 @@
 #import "BitStampUSDFetcher.h"
 #import "CoinbaseUSDFetcher.h"
 #import "BTCeUSDFetcher.h"
+#import "BitFinexUSDFetcher.h"
+#import "WinkDexUSDFetcher.h"
+#import "OKCoinCNYFetcher.h"
+#import "HuobiCNYFetcher.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     NSMenu *btcbarMainMenu;
     NSInteger currentFetcherTag;
-    
+
     NSStatusItem *btcbarStatusItem;
-    
+
     NSTimer *updateViewTimer;
     NSTimer *updateDataTimer;
-    
+
     NSMutableArray *tickers;
     NSUserDefaults *prefs;
 }

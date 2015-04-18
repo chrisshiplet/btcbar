@@ -11,17 +11,17 @@
 		830CE09B171B6C3E00DDD525 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 830CE099171B6C3E00DDD525 /* InfoPlist.strings */; };
 		830CE09D171B6C3E00DDD525 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CE09C171B6C3E00DDD525 /* main.m */; };
 		830CE0A4171B6C3E00DDD525 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CE0A3171B6C3E00DDD525 /* AppDelegate.m */; };
-		838F835018602990007A7AAE /* btclogoDim.png in Resources */ = {isa = PBXBuildFile; fileRef = 838F834E18602990007A7AAE /* btclogoDim.png */; };
-		838F835118602990007A7AAE /* btclogoDim@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 838F834F18602990007A7AAE /* btclogoDim@2x.png */; };
 		83C3E7491859700100FA2921 /* BitStampUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C3E7421859700100FA2921 /* BitStampUSDFetcher.m */; };
 		83C3E74A1859700100FA2921 /* BTCeUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C3E7441859700100FA2921 /* BTCeUSDFetcher.m */; };
 		83C3E74B1859700100FA2921 /* CoinbaseUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C3E7461859700100FA2921 /* CoinbaseUSDFetcher.m */; };
 		83C3E74F1859702000FA2921 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83C3E74E1859702000FA2921 /* MainMenu.xib */; };
 		83C3E7541859702D00FA2921 /* btclogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C3E7501859702D00FA2921 /* btclogo.png */; };
 		83C3E7551859702D00FA2921 /* btclogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C3E7511859702D00FA2921 /* btclogo@2x.png */; };
-		83C3E7561859702D00FA2921 /* btclogoAlternate.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C3E7521859702D00FA2921 /* btclogoAlternate.png */; };
-		83C3E7571859702D00FA2921 /* btclogoAlternate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C3E7531859702D00FA2921 /* btclogoAlternate@2x.png */; };
 		83C3E759185970C800FA2921 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 83C3E758185970C800FA2921 /* Icon.icns */; };
+		90347B7918ACB073005C42A8 /* HuobiCNYFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 90347B7818ACB073005C42A8 /* HuobiCNYFetcher.m */; };
+		B65127471A71A1BB00FB6A24 /* OKCoinCNYFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B65127461A71A1BB00FB6A24 /* OKCoinCNYFetcher.m */; };
+		B662833B1A712EBB00520512 /* BitFinexUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B662833A1A712EBB00520512 /* BitFinexUSDFetcher.m */; };
+		B662833E1A715EFB00520512 /* WinkDexUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B662833D1A715EFB00520512 /* WinkDexUSDFetcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +38,6 @@
 		830CE0A3171B6C3E00DDD525 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		830CE0AE171B6C3F00DDD525 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		838F4296182E2F6E00B4FC58 /* Fetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fetcher.h; sourceTree = "<group>"; };
-		838F834E18602990007A7AAE /* btclogoDim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btclogoDim.png; path = Icons/btclogoDim.png; sourceTree = "<group>"; };
-		838F834F18602990007A7AAE /* btclogoDim@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btclogoDim@2x.png"; path = "Icons/btclogoDim@2x.png"; sourceTree = "<group>"; };
 		83C3E7411859700100FA2921 /* BitStampUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BitStampUSDFetcher.h; path = Fetchers/BitStampUSDFetcher.h; sourceTree = "<group>"; };
 		83C3E7421859700100FA2921 /* BitStampUSDFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BitStampUSDFetcher.m; path = Fetchers/BitStampUSDFetcher.m; sourceTree = "<group>"; };
 		83C3E7431859700100FA2921 /* BTCeUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTCeUSDFetcher.h; path = Fetchers/BTCeUSDFetcher.h; sourceTree = "<group>"; };
@@ -49,9 +47,15 @@
 		83C3E74E1859702000FA2921 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = Views/MainMenu.xib; sourceTree = "<group>"; };
 		83C3E7501859702D00FA2921 /* btclogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btclogo.png; path = Icons/btclogo.png; sourceTree = "<group>"; };
 		83C3E7511859702D00FA2921 /* btclogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btclogo@2x.png"; path = "Icons/btclogo@2x.png"; sourceTree = "<group>"; };
-		83C3E7521859702D00FA2921 /* btclogoAlternate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btclogoAlternate.png; path = Icons/btclogoAlternate.png; sourceTree = "<group>"; };
-		83C3E7531859702D00FA2921 /* btclogoAlternate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btclogoAlternate@2x.png"; path = "Icons/btclogoAlternate@2x.png"; sourceTree = "<group>"; };
 		83C3E758185970C800FA2921 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = ../Resources/Icon.icns; sourceTree = "<group>"; };
+		90347B7718ACB073005C42A8 /* HuobiCNYFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HuobiCNYFetcher.h; path = Fetchers/HuobiCNYFetcher.h; sourceTree = "<group>"; };
+		90347B7818ACB073005C42A8 /* HuobiCNYFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HuobiCNYFetcher.m; path = Fetchers/HuobiCNYFetcher.m; sourceTree = "<group>"; };
+		B65127451A71A1BB00FB6A24 /* OKCoinCNYFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKCoinCNYFetcher.h; path = Fetchers/OKCoinCNYFetcher.h; sourceTree = "<group>"; };
+		B65127461A71A1BB00FB6A24 /* OKCoinCNYFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKCoinCNYFetcher.m; path = Fetchers/OKCoinCNYFetcher.m; sourceTree = "<group>"; };
+		B66283391A712EBB00520512 /* BitFinexUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BitFinexUSDFetcher.h; path = Fetchers/BitFinexUSDFetcher.h; sourceTree = "<group>"; };
+		B662833A1A712EBB00520512 /* BitFinexUSDFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BitFinexUSDFetcher.m; path = Fetchers/BitFinexUSDFetcher.m; sourceTree = "<group>"; };
+		B662833C1A715EFB00520512 /* WinkDexUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinkDexUSDFetcher.h; path = Fetchers/WinkDexUSDFetcher.h; sourceTree = "<group>"; };
+		B662833D1A715EFB00520512 /* WinkDexUSDFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WinkDexUSDFetcher.m; path = Fetchers/WinkDexUSDFetcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,10 +138,6 @@
 				83C3E758185970C800FA2921 /* Icon.icns */,
 				83C3E7501859702D00FA2921 /* btclogo.png */,
 				83C3E7511859702D00FA2921 /* btclogo@2x.png */,
-				83C3E7521859702D00FA2921 /* btclogoAlternate.png */,
-				83C3E7531859702D00FA2921 /* btclogoAlternate@2x.png */,
-				838F834E18602990007A7AAE /* btclogoDim.png */,
-				838F834F18602990007A7AAE /* btclogoDim@2x.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -147,10 +147,18 @@
 			children = (
 				83C3E7411859700100FA2921 /* BitStampUSDFetcher.h */,
 				83C3E7421859700100FA2921 /* BitStampUSDFetcher.m */,
+				B65127451A71A1BB00FB6A24 /* OKCoinCNYFetcher.h */,
+				B65127461A71A1BB00FB6A24 /* OKCoinCNYFetcher.m */,
+				B662833C1A715EFB00520512 /* WinkDexUSDFetcher.h */,
+				B662833D1A715EFB00520512 /* WinkDexUSDFetcher.m */,
+				B66283391A712EBB00520512 /* BitFinexUSDFetcher.h */,
+				B662833A1A712EBB00520512 /* BitFinexUSDFetcher.m */,
 				83C3E7431859700100FA2921 /* BTCeUSDFetcher.h */,
 				83C3E7441859700100FA2921 /* BTCeUSDFetcher.m */,
 				83C3E7451859700100FA2921 /* CoinbaseUSDFetcher.h */,
 				83C3E7461859700100FA2921 /* CoinbaseUSDFetcher.m */,
+				90347B7718ACB073005C42A8 /* HuobiCNYFetcher.h */,
+				90347B7818ACB073005C42A8 /* HuobiCNYFetcher.m */,
 			);
 			name = Fetchers;
 			sourceTree = "<group>";
@@ -215,12 +223,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				83C3E7541859702D00FA2921 /* btclogo.png in Resources */,
-				83C3E7561859702D00FA2921 /* btclogoAlternate.png in Resources */,
-				838F835118602990007A7AAE /* btclogoDim@2x.png in Resources */,
 				830CE09B171B6C3E00DDD525 /* InfoPlist.strings in Resources */,
-				83C3E7571859702D00FA2921 /* btclogoAlternate@2x.png in Resources */,
 				83C3E759185970C800FA2921 /* Icon.icns in Resources */,
-				838F835018602990007A7AAE /* btclogoDim.png in Resources */,
 				83C3E7551859702D00FA2921 /* btclogo@2x.png in Resources */,
 				83C3E74F1859702000FA2921 /* MainMenu.xib in Resources */,
 			);
@@ -234,7 +238,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				83C3E7491859700100FA2921 /* BitStampUSDFetcher.m in Sources */,
+				B662833B1A712EBB00520512 /* BitFinexUSDFetcher.m in Sources */,
 				830CE09D171B6C3E00DDD525 /* main.m in Sources */,
+				B65127471A71A1BB00FB6A24 /* OKCoinCNYFetcher.m in Sources */,
+				B662833E1A715EFB00520512 /* WinkDexUSDFetcher.m in Sources */,
+				90347B7918ACB073005C42A8 /* HuobiCNYFetcher.m in Sources */,
 				83C3E74B1859700100FA2921 /* CoinbaseUSDFetcher.m in Sources */,
 				83C3E74A1859700100FA2921 /* BTCeUSDFetcher.m in Sources */,
 				830CE0A4171B6C3E00DDD525 /* AppDelegate.m in Sources */,
