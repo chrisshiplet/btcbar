@@ -11,7 +11,7 @@
 #import "BitFinexUSDFetcher.h"
 #import "WinkDexUSDFetcher.h"
 #import "OKCoinCNYFetcher.h"
-#import "HuobiRMBFetcher.h"
+#import "HuobiCNYFetcher.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     NSMenu *btcbarMainMenu;

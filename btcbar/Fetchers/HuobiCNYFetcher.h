@@ -1,5 +1,5 @@
 //
-//  HuobiRMBFetcher.h
+//  HuobiCNYFetcher.h
 //  btcbar
 //
 //  Created by lwei on 2/13/14.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Fetcher.h"
 
-@interface HuobiRMBFetcher : NSObject<Fetcher, NSURLConnectionDelegate>
+@interface HuobiCNYFetcher : NSObject<Fetcher, NSURLConnectionDelegate>
 
 @property (nonatomic) NSString* ticker;
 @property (nonatomic) NSString* ticker_menu;

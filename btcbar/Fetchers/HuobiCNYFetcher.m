@@ -1,29 +1,29 @@
 //
-//  HuobiRMBFetcher.m
+//  HuobiCNYFetcher.m
 //  btcbar
 //
 //  Created by lwei on 2/13/14.
 //  Copyright (c) 2014 nearengine. All rights reserved.
 //
 
-#import "HuobiRMBFetcher.h"
+#import "HuobiCNYFetcher.h"
 
-@implementation HuobiRMBFetcher
+@implementation HuobiCNYFetcher
 
 - (id)init
 {
     if (self = [super init])
     {
         // Menu Item Name
-        self.ticker_menu = @"HuobiRMB";
-        
+        self.ticker_menu = @"HuobiCNY";
+
         // Website location
         self.url = @"http://www.huobi.com";
-        
+
         // Immediately request first update
         [self requestUpdate];
     }
-    
+
     return self;
 }
 
@@ -32,7 +32,7 @@
 {
     // Update the ticker value
     _ticker = tickerString;
-    
+
     // Trigger notification to update ticker
     [[NSNotificationCenter defaultCenter] postNotificationName:@"btcbar_ticker_update" object:self];
 }
@@ -41,13 +41,13 @@
 - (void)requestUpdate
 {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://market.huobi.com/staticmarket/detail.html"]];
-    
+
     // Set the request's user agent
-    [request addValue:@"btcbar/2.0 (HuobiRMBFetcher)" forHTTPHeaderField:@"User-Agent"];
-    
+    [request addValue:@"btcbar/2.0 (HuobiCNYFetcher)" forHTTPHeaderField:@"User-Agent"];
+
     // Initialize a connection from our request
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
+
     // Go go go
     [connection start];
 }
@@ -77,32 +77,33 @@
     if (!responseStr) {
         return;
     }
-    
+
     NSRange range = [responseStr rangeOfString:@"(?<=\\().*(?=\\))" options:NSRegularExpressionSearch];
     if (range.location > responseStr.length || range.location + range.length > responseStr.length) {
         return;
     }
-    
+
     NSString *resultsStr = [responseStr substringWithRange:range];
-    
+
     if (!resultsStr) {
         return;
     }
-    
+
     // Parse the JSON into results
     NSError *jsonParsingError = nil;
     id results = [NSJSONSerialization JSONObjectWithData:[resultsStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&jsonParsingError];
-    
+
     // Results parsed successfully from JSON
     if (results)
     {
         NSNumber *ticker = [results objectForKey:@"p_new"];
         if (ticker) {
-            NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
-            currencyStyle.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
-            currencyStyle.numberStyle = NSNumberFormatterCurrencyStyle;
+            NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+            NSString *resultsStatus = [numberFormatter stringFromNumber:ticker];
+            resultsStatus = [NSString stringWithFormat:@"¥%@", resultsStatus];
+            
             self.error = nil;
-            self.ticker = [currencyStyle stringFromNumber:ticker];
+            self.ticker = resultsStatus;
         }
         // Otherwise log an error...
         else
