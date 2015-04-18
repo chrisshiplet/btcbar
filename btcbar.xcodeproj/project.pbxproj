@@ -25,6 +25,7 @@
 		B65127471A71A1BB00FB6A24 /* OKCoinCNYFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B65127461A71A1BB00FB6A24 /* OKCoinCNYFetcher.m */; };
 		B662833B1A712EBB00520512 /* BitFinexUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B662833A1A712EBB00520512 /* BitFinexUSDFetcher.m */; };
 		B662833E1A715EFB00520512 /* WinkDexUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B662833D1A715EFB00520512 /* WinkDexUSDFetcher.m */; };
+		90347B7918ACB073005C42A8 /* HuobiRMBFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 90347B7818ACB073005C42A8 /* HuobiRMBFetcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,8 @@
 		B662833A1A712EBB00520512 /* BitFinexUSDFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BitFinexUSDFetcher.m; path = Fetchers/BitFinexUSDFetcher.m; sourceTree = "<group>"; };
 		B662833C1A715EFB00520512 /* WinkDexUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinkDexUSDFetcher.h; path = Fetchers/WinkDexUSDFetcher.h; sourceTree = "<group>"; };
 		B662833D1A715EFB00520512 /* WinkDexUSDFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WinkDexUSDFetcher.m; path = Fetchers/WinkDexUSDFetcher.m; sourceTree = "<group>"; };
+		90347B7718ACB073005C42A8 /* HuobiRMBFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HuobiRMBFetcher.h; path = Fetchers/HuobiRMBFetcher.h; sourceTree = "<group>"; };
+		90347B7818ACB073005C42A8 /* HuobiRMBFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HuobiRMBFetcher.m; path = Fetchers/HuobiRMBFetcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +169,8 @@
 				83C3E7441859700100FA2921 /* BTCeUSDFetcher.m */,
 				83C3E7451859700100FA2921 /* CoinbaseUSDFetcher.h */,
 				83C3E7461859700100FA2921 /* CoinbaseUSDFetcher.m */,
+				90347B7718ACB073005C42A8 /* HuobiRMBFetcher.h */,
+				90347B7818ACB073005C42A8 /* HuobiRMBFetcher.m */,
 			);
 			name = Fetchers;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 				830CE09D171B6C3E00DDD525 /* main.m in Sources */,
 				B65127471A71A1BB00FB6A24 /* OKCoinCNYFetcher.m in Sources */,
 				B662833E1A715EFB00520512 /* WinkDexUSDFetcher.m in Sources */,
+				90347B7918ACB073005C42A8 /* HuobiRMBFetcher.m in Sources */,
 				83C3E74B1859700100FA2921 /* CoinbaseUSDFetcher.m in Sources */,
 				83C3E74A1859700100FA2921 /* BTCeUSDFetcher.m in Sources */,
 				830CE0A4171B6C3E00DDD525 /* AppDelegate.m in Sources */,
