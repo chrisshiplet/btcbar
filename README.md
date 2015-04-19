@@ -19,13 +19,17 @@ Simply place btcbar.app in your `/Applications` folder, and optionally add it to
 
 ## Download
 
-The current version of btcbar (2.2.0) can be downloaded here:
+The current version of btcbar (2.2.1) can be downloaded here:
 
-https://github.com/nearengine/btcbar/releases/download/v2.2.0/btcbar_2_2_0.zip
+https://github.com/nearengine/btcbar/releases/download/v2.2.1/btcbar_2_2_1.zip
 
 It requires OS X 10.7+ and a 64-bit processor.
 
 ## Changelog
+
+### 2.2.1
+
+* Fix bug where icon disappears on error
 
 ### 2.2.0
 
