@@ -70,10 +70,11 @@
     // Set status bar image
     NSImage *image = [NSImage imageNamed:@"btclogo"];
     [image setTemplate:YES];
-    [btcbarStatusItem setImage:image];
+    [btcbarStatusItem.button setImage:image];
+    [btcbarStatusItem.button setImagePosition:NSImageLeft];
 
     // Set menu options on click
-    btcbarStatusItem.menu = btcbarMainMenu;
+    [btcbarStatusItem setMenu:btcbarMainMenu];
 
     // Setup timer to update all tickers every 10 seconds
     updateDataTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateDataTimerAction:) userInfo:nil repeats:YES];
@@ -143,14 +144,14 @@
     {
         if ([[pNotification object] ticker] == nil)
         {
-            btcbarStatusItem.title = nil;
-            btcbarStatusItem.toolTip = [NSString stringWithFormat: @"%@ Error: %@", [[pNotification object] ticker_menu], [[pNotification object] error].localizedFailureReason];
+            [btcbarStatusItem.button setTitle: @""];
+            [btcbarStatusItem.button setToolTip: [NSString stringWithFormat: @"%@ Error: %@", [[pNotification object] ticker_menu], [[pNotification object] error].localizedFailureReason]];
         }
         else
         {
             // Set the status item to the current Fetcher's ticker
-            btcbarStatusItem.title = [(id <Fetcher>)[tickers objectAtIndex:currentFetcherTag] ticker];
-            btcbarStatusItem.toolTip = [[tickers objectAtIndex:currentFetcherTag] ticker_menu];
+            [btcbarStatusItem.button setTitle: [(id <Fetcher>)[tickers objectAtIndex:currentFetcherTag] ticker]];
+            [btcbarStatusItem.button setToolTip: [[tickers objectAtIndex:currentFetcherTag] ticker_menu]];
         }
     }
 
