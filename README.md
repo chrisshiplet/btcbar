@@ -1,7 +1,7 @@
 btcbar
 ======
 
-A tiny status bar widget for OS X that displays the latest USD/BTC spot price from several USD and CNY exchanges.
+A tiny status bar widget for OS X that displays the latest USD/BTC spot price from several exchanges.
 
 ## Screenshot
 
@@ -19,13 +19,27 @@ Simply place btcbar.app in your `/Applications` folder, and optionally add it to
 
 ## Download
 
-The current version of btcbar (2.2.1) can be downloaded here:
+The current version of btcbar (2.3.0) can be downloaded here:
 
-https://github.com/nearengine/btcbar/releases/download/v2.2.1/btcbar_2_2_1.zip
+https://github.com/nearengine/btcbar/releases/download/v2.3.0/btcbar_2_3_0.zip
 
 It requires OS X 10.7+ and a 64-bit processor.
 
 ## Changelog
+
+### 2.3.0
+
+* Fix #15 text cut off on launch
+* Fix #14 setting update frequency to 60 seconds (from 10 seconds)
+* Fix #13 Huobi ticker error **Note:** Strict TLS 1.2 checks had to be disabled for the Huobi domain due to their insecure HTTPS certificate. It was only using HTTP until this release, so this is unfortunate but is not a regression.
+* Use the new Huobi and OKCoin USD tickers rather than CNY price **Note:** Apologies to anyone this inconveniences. Also, this change will reset your default ticker.
+* Tickers are now sorted alphabetically
+
+TODO:
+* Implement multiple currency pair support on tickers in the near future to support switching between currencies.
+* Make ticker loading and default ticker handling more robust so they can be swapped out or plugged in easier.
+* Implement self-updates from within the app
+* Figure out an appropriate OSS license
 
 ### 2.2.1
 
