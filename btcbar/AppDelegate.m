@@ -76,8 +76,8 @@
     // Set menu options on click
     [btcbarStatusItem setMenu:btcbarMainMenu];
 
-    // Setup timer to update all tickers every 10 seconds
-    updateDataTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateDataTimerAction:) userInfo:nil repeats:YES];
+    // Setup timer to update all tickers every 60 seconds
+    updateDataTimer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(updateDataTimerAction:) userInfo:nil repeats:YES];
 }
 
 
