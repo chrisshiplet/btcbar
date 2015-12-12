@@ -27,19 +27,22 @@
 
     // Pass each ticker object into a dictionary, get first updates
     tickers = [NSMutableArray arrayWithObjects:
+               [[BitFinexUSDFetcher alloc] init],
                [[BitStampUSDFetcher alloc] init],
                [[BTCeUSDFetcher alloc] init],
                [[CoinbaseUSDFetcher alloc] init],
-               [[BitFinexUSDFetcher alloc] init],
+               [[HuobiUSDFetcher alloc] init],
+               [[OKCoinUSDFetcher alloc] init],
                [[WinkDexUSDFetcher alloc] init],
-               [[OKCoinCYNFetcher alloc] init],
-               [[HuobiCNYFetcher alloc] init],
                nil];
 
     // If ticker preference does not exist, default to 0
-    if (![prefs integerForKey:@"btcbar_ticker"])
-        [prefs setInteger:0 forKey:@"btcbar_ticker"];
-    currentFetcherTag = [prefs integerForKey:@"btcbar_ticker"];
+    if (![prefs integerForKey:@"btcbar_ticker_index"])
+        [prefs setInteger:0 forKey:@"btcbar_ticker_index"];
+    currentFetcherTag = [prefs integerForKey:@"btcbar_ticker_index"];
+    
+    // Clean up legacy preference
+    [prefs removeObjectForKey:@"btcbar_ticker"];
 
     // If ticker preference exceeds the bounds of `tickers`, default to 0
     if (currentFetcherTag < 0 || currentFetcherTag >= [tickers count])

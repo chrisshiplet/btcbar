@@ -1,21 +1,21 @@
 //
-//  OKCoinCYNFetcher.m
+//  OKCoinUSDFetcher.m
 //  btcbar
 //
 //  Created by Tim Daubenschütz on 22/01/15.
 //  Copyright (c) 2015 nearengine. All rights reserved.
 //
 
-#import "OKCoinCNYFetcher.h"
+#import "OKCoinUSDFetcher.h"
 
-@implementation OKCoinCYNFetcher
+@implementation OKCoinUSDFetcher
 
 - (id)init
 {
     if (self = [super init])
     {
         // Menu Item Name
-        self.ticker_menu = @"OKCoinCNY";
+        self.ticker_menu = @"OKCoinUSD";
         
         // Website location
         self.url = @"https://www.okcoin.cn/";
@@ -40,10 +40,10 @@
 // Initiates an asyncronous HTTP connection
 - (void)requestUpdate
 {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.okcoin.cn/api/v1/ticker.do?symbol=btc_cny"]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.okcoin.com/api/v1/ticker.do?symbol=btc_usd"]];
     
     // Set the request's user agent
-    [request addValue:@"btcbar/2.0 (OKCoinCNYFetcher)" forHTTPHeaderField:@"User-Agent"];
+    [request addValue:@"btcbar/2.0 (OKCoinUSDFetcher)" forHTTPHeaderField:@"User-Agent"];
     
     // Initialize a connection from our request
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -89,11 +89,12 @@
         // If API call succeeded update the ticker...
         if(resultsStatus)
         {
-            NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-            resultsStatus = [numberFormatter stringFromNumber:[NSDecimalNumber decimalNumberWithString:resultsStatus]];
-            resultsStatus = [NSString stringWithFormat:@"¥%@", resultsStatus];
+            NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
+            currencyStyle.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+            currencyStyle.numberStyle = NSNumberFormatterCurrencyStyle;
             
-            self.ticker = resultsStatus;
+            self.error = nil;
+            self.ticker = [currencyStyle stringFromNumber:[NSDecimalNumber decimalNumberWithString:resultsStatus]];
         }
         // Otherwise log an error...
         else

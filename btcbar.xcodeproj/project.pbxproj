@@ -18,8 +18,8 @@
 		83C3E7541859702D00FA2921 /* btclogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C3E7501859702D00FA2921 /* btclogo.png */; };
 		83C3E7551859702D00FA2921 /* btclogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C3E7511859702D00FA2921 /* btclogo@2x.png */; };
 		83C3E759185970C800FA2921 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 83C3E758185970C800FA2921 /* Icon.icns */; };
-		90347B7918ACB073005C42A8 /* HuobiCNYFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 90347B7818ACB073005C42A8 /* HuobiCNYFetcher.m */; };
-		B65127471A71A1BB00FB6A24 /* OKCoinCNYFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B65127461A71A1BB00FB6A24 /* OKCoinCNYFetcher.m */; };
+		90347B7918ACB073005C42A8 /* HuobiUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 90347B7818ACB073005C42A8 /* HuobiUSDFetcher.m */; };
+		B65127471A71A1BB00FB6A24 /* OKCoinUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B65127461A71A1BB00FB6A24 /* OKCoinUSDFetcher.m */; };
 		B662833B1A712EBB00520512 /* BitFinexUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B662833A1A712EBB00520512 /* BitFinexUSDFetcher.m */; };
 		B662833E1A715EFB00520512 /* WinkDexUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B662833D1A715EFB00520512 /* WinkDexUSDFetcher.m */; };
 /* End PBXBuildFile section */
@@ -48,10 +48,10 @@
 		83C3E7501859702D00FA2921 /* btclogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btclogo.png; path = Icons/btclogo.png; sourceTree = "<group>"; };
 		83C3E7511859702D00FA2921 /* btclogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btclogo@2x.png"; path = "Icons/btclogo@2x.png"; sourceTree = "<group>"; };
 		83C3E758185970C800FA2921 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = ../Resources/Icon.icns; sourceTree = "<group>"; };
-		90347B7718ACB073005C42A8 /* HuobiCNYFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HuobiCNYFetcher.h; path = Fetchers/HuobiCNYFetcher.h; sourceTree = "<group>"; };
-		90347B7818ACB073005C42A8 /* HuobiCNYFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HuobiCNYFetcher.m; path = Fetchers/HuobiCNYFetcher.m; sourceTree = "<group>"; };
-		B65127451A71A1BB00FB6A24 /* OKCoinCNYFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKCoinCNYFetcher.h; path = Fetchers/OKCoinCNYFetcher.h; sourceTree = "<group>"; };
-		B65127461A71A1BB00FB6A24 /* OKCoinCNYFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKCoinCNYFetcher.m; path = Fetchers/OKCoinCNYFetcher.m; sourceTree = "<group>"; };
+		90347B7718ACB073005C42A8 /* HuobiUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HuobiUSDFetcher.h; path = Fetchers/HuobiUSDFetcher.h; sourceTree = "<group>"; };
+		90347B7818ACB073005C42A8 /* HuobiUSDFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HuobiUSDFetcher.m; path = Fetchers/HuobiUSDFetcher.m; sourceTree = "<group>"; };
+		B65127451A71A1BB00FB6A24 /* OKCoinUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKCoinUSDFetcher.h; path = Fetchers/OKCoinUSDFetcher.h; sourceTree = "<group>"; };
+		B65127461A71A1BB00FB6A24 /* OKCoinUSDFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKCoinUSDFetcher.m; path = Fetchers/OKCoinUSDFetcher.m; sourceTree = "<group>"; };
 		B66283391A712EBB00520512 /* BitFinexUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BitFinexUSDFetcher.h; path = Fetchers/BitFinexUSDFetcher.h; sourceTree = "<group>"; };
 		B662833A1A712EBB00520512 /* BitFinexUSDFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BitFinexUSDFetcher.m; path = Fetchers/BitFinexUSDFetcher.m; sourceTree = "<group>"; };
 		B662833C1A715EFB00520512 /* WinkDexUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinkDexUSDFetcher.h; path = Fetchers/WinkDexUSDFetcher.h; sourceTree = "<group>"; };
@@ -147,8 +147,8 @@
 			children = (
 				83C3E7411859700100FA2921 /* BitStampUSDFetcher.h */,
 				83C3E7421859700100FA2921 /* BitStampUSDFetcher.m */,
-				B65127451A71A1BB00FB6A24 /* OKCoinCNYFetcher.h */,
-				B65127461A71A1BB00FB6A24 /* OKCoinCNYFetcher.m */,
+				B65127451A71A1BB00FB6A24 /* OKCoinUSDFetcher.h */,
+				B65127461A71A1BB00FB6A24 /* OKCoinUSDFetcher.m */,
 				B662833C1A715EFB00520512 /* WinkDexUSDFetcher.h */,
 				B662833D1A715EFB00520512 /* WinkDexUSDFetcher.m */,
 				B66283391A712EBB00520512 /* BitFinexUSDFetcher.h */,
@@ -157,8 +157,8 @@
 				83C3E7441859700100FA2921 /* BTCeUSDFetcher.m */,
 				83C3E7451859700100FA2921 /* CoinbaseUSDFetcher.h */,
 				83C3E7461859700100FA2921 /* CoinbaseUSDFetcher.m */,
-				90347B7718ACB073005C42A8 /* HuobiCNYFetcher.h */,
-				90347B7818ACB073005C42A8 /* HuobiCNYFetcher.m */,
+				90347B7718ACB073005C42A8 /* HuobiUSDFetcher.h */,
+				90347B7818ACB073005C42A8 /* HuobiUSDFetcher.m */,
 			);
 			name = Fetchers;
 			sourceTree = "<group>";
@@ -240,9 +240,9 @@
 				83C3E7491859700100FA2921 /* BitStampUSDFetcher.m in Sources */,
 				B662833B1A712EBB00520512 /* BitFinexUSDFetcher.m in Sources */,
 				830CE09D171B6C3E00DDD525 /* main.m in Sources */,
-				B65127471A71A1BB00FB6A24 /* OKCoinCNYFetcher.m in Sources */,
+				B65127471A71A1BB00FB6A24 /* OKCoinUSDFetcher.m in Sources */,
 				B662833E1A715EFB00520512 /* WinkDexUSDFetcher.m in Sources */,
-				90347B7918ACB073005C42A8 /* HuobiCNYFetcher.m in Sources */,
+				90347B7918ACB073005C42A8 /* HuobiUSDFetcher.m in Sources */,
 				83C3E74B1859700100FA2921 /* CoinbaseUSDFetcher.m in Sources */,
 				83C3E74A1859700100FA2921 /* BTCeUSDFetcher.m in Sources */,
 				830CE0A4171B6C3E00DDD525 /* AppDelegate.m in Sources */,
