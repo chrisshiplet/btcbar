@@ -45,7 +45,7 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.bitfinex.com/v1/pubticker/BTCUSD/"]];
     
     // Set the request's user agent
-    [request addValue:@"btcbar/2.0 (BitFinexUSDFetcher)" forHTTPHeaderField:@"User-Agent"];
+    [request addValue:@"btcbar/2.3 (BitFinexUSDFetcher)" forHTTPHeaderField:@"User-Agent"];
     
     // Initialize a connection from our request
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -113,6 +113,7 @@
 // HTTP request failed
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
+    NSLog(@"%@",[error localizedDescription]);
     self.error = [NSError errorWithDomain:@"com.nearengine.btcbar" code:0 userInfo:[NSDictionary dictionaryWithObjectsAndKeys: @"Connection Error", NSLocalizedDescriptionKey, @"Could not connect to BitFinex.", NSLocalizedFailureReasonErrorKey, nil]];
     self.ticker = nil;
 }

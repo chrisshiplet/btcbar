@@ -19,13 +19,17 @@ Simply place btcbar.app in your `/Applications` folder, and optionally add it to
 
 ## Download
 
-The current version of btcbar (2.3.0) can be downloaded here:
+The current version of btcbar (2.3.1) can be downloaded here:
 
-https://github.com/nearengine/btcbar/releases/download/v2.3.0/btcbar_2_3_0.zip
+https://github.com/nearengine/btcbar/releases/download/v2.3.1/btcbar_2_3_1.zip
 
 It requires OS X 10.7+ and a 64-bit processor.
 
 ## Changelog
+
+### 2.3.1
+
+* Fix BitFenix ticker (it was throwing 301s back to the btcbar user agent, but it's on a 60 second poll and they don't publish any rate limits...)
 
 ### 2.3.0
 
