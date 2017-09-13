@@ -11,6 +11,7 @@
 		830CE09B171B6C3E00DDD525 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 830CE099171B6C3E00DDD525 /* InfoPlist.strings */; };
 		830CE09D171B6C3E00DDD525 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CE09C171B6C3E00DDD525 /* main.m */; };
 		830CE0A4171B6C3E00DDD525 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CE0A3171B6C3E00DDD525 /* AppDelegate.m */; };
+		8317A2271F68F83E0056F110 /* KrakenUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8317A2261F68F83E0056F110 /* KrakenUSDFetcher.m */; };
 		83C3E7491859700100FA2921 /* BitStampUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C3E7421859700100FA2921 /* BitStampUSDFetcher.m */; };
 		83C3E74A1859700100FA2921 /* BittrexUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C3E7441859700100FA2921 /* BittrexUSDFetcher.m */; };
 		83C3E74B1859700100FA2921 /* CoinbaseUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C3E7461859700100FA2921 /* CoinbaseUSDFetcher.m */; };
@@ -37,6 +38,8 @@
 		830CE0A2171B6C3E00DDD525 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		830CE0A3171B6C3E00DDD525 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		830CE0AE171B6C3F00DDD525 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		8317A2251F68F83E0056F110 /* KrakenUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KrakenUSDFetcher.h; path = Fetchers/KrakenUSDFetcher.h; sourceTree = "<group>"; };
+		8317A2261F68F83E0056F110 /* KrakenUSDFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KrakenUSDFetcher.m; path = Fetchers/KrakenUSDFetcher.m; sourceTree = "<group>"; };
 		838F4296182E2F6E00B4FC58 /* Fetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fetcher.h; sourceTree = "<group>"; };
 		83C3E7411859700100FA2921 /* BitStampUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BitStampUSDFetcher.h; path = Fetchers/BitStampUSDFetcher.h; sourceTree = "<group>"; };
 		83C3E7421859700100FA2921 /* BitStampUSDFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BitStampUSDFetcher.m; path = Fetchers/BitStampUSDFetcher.m; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 		838F4297182E5A5000B4FC58 /* Fetchers */ = {
 			isa = PBXGroup;
 			children = (
+				8317A2251F68F83E0056F110 /* KrakenUSDFetcher.h */,
+				8317A2261F68F83E0056F110 /* KrakenUSDFetcher.m */,
 				83C3E7411859700100FA2921 /* BitStampUSDFetcher.h */,
 				83C3E7421859700100FA2921 /* BitStampUSDFetcher.m */,
 				B65127451A71A1BB00FB6A24 /* OKCoinUSDFetcher.h */,
@@ -245,6 +250,7 @@
 				90347B7918ACB073005C42A8 /* HuobiUSDFetcher.m in Sources */,
 				83C3E74B1859700100FA2921 /* CoinbaseUSDFetcher.m in Sources */,
 				83C3E74A1859700100FA2921 /* BittrexUSDFetcher.m in Sources */,
+				8317A2271F68F83E0056F110 /* KrakenUSDFetcher.m in Sources */,
 				830CE0A4171B6C3E00DDD525 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -34,13 +34,14 @@
                [[HuobiUSDFetcher alloc] init],
                [[OKCoinUSDFetcher alloc] init],
                [[WinkDexUSDFetcher alloc] init],
+               [[KrakenUSDFetcher alloc] init],
                nil];
 
     // If ticker preference does not exist, default to 0
     if (![prefs integerForKey:@"btcbar_ticker_index"])
         [prefs setInteger:0 forKey:@"btcbar_ticker_index"];
     currentFetcherTag = [prefs integerForKey:@"btcbar_ticker_index"];
-    
+
     // Clean up legacy preference
     [prefs removeObjectForKey:@"btcbar_ticker"];
 

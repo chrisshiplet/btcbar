@@ -12,6 +12,7 @@
 #import "WinkDexUSDFetcher.h"
 #import "OKCoinUSDFetcher.h"
 #import "HuobiUSDFetcher.h"
+#import "KrakenUSDFetcher.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     NSMenu *btcbarMainMenu;
