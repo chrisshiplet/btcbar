@@ -19,13 +19,23 @@ Simply place btcbar.app in your `/Applications` folder, and optionally add it to
 
 ## Download
 
-The current version of btcbar (2.3.1) can be downloaded here:
+The current version of btcbar (2.4.0) can be downloaded here:
 
-https://github.com/nearengine/btcbar/releases/download/v2.3.1/btcbar_2_3_1.zip
+https://github.com/nearengine/btcbar/releases/download/v2.4.0/btcbar_2_4_0.zip
 
 It requires OS X 10.7+ and a 64-bit processor.
 
+## Development
+
+Requires Cocoapods. Run `pod install` in the project directory and open `btcbar.xcworkspace` to build the app.
+
 ## Changelog
+
+### 2.4.0
+* #17 Add Kraken ticker
+* #26 Add Bittrex ticker
+* #24 Remove BTCe ticker
+* Fix #21 automatically reload tickers when internet is reconnected
 
 ### 2.3.1
 
