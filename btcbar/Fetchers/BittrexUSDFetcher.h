@@ -1,12 +1,12 @@
 //
-//  BTCeUSDFetcher.h
+//  BittrexUSDFetcher.h
 //  btcbar
 //
 
 #import <Foundation/Foundation.h>
 #import "Fetcher.h"
 
-@interface BTCeUSDFetcher : NSObject<Fetcher, NSURLConnectionDelegate>
+@interface BittrexUSDFetcher : NSObject<Fetcher, NSURLConnectionDelegate>
 
 @property (nonatomic) NSString* ticker;
 @property (nonatomic) NSString* ticker_menu;

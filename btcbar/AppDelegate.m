@@ -29,7 +29,7 @@
     tickers = [NSMutableArray arrayWithObjects:
                [[BitFinexUSDFetcher alloc] init],
                [[BitStampUSDFetcher alloc] init],
-               [[BTCeUSDFetcher alloc] init],
+               [[BittrexUSDFetcher alloc] init],
                [[CoinbaseUSDFetcher alloc] init],
                [[HuobiUSDFetcher alloc] init],
                [[OKCoinUSDFetcher alloc] init],

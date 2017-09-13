@@ -1,26 +1,26 @@
 //
-//  BTCeUSDFetcher.m
+//  BittrexUSDFetcher.m
 //  btcbar
 //
 
-#import "BTCeUSDFetcher.h"
+#import "BittrexUSDFetcher.h"
 
-@implementation BTCeUSDFetcher
+@implementation BittrexUSDFetcher
 
 - (id)init
 {
     if (self = [super init])
     {
         // Menu Item Name
-        self.ticker_menu = @"BTCeUSD";
-        
+        self.ticker_menu = @"BittrexUSD";
+
         // Website location
-        self.url = @"https://btc-e.com/";
-        
+        self.url = @"https://bittrex.com/";
+
         // Immediately request first update
         [self requestUpdate];
     }
-    
+
     return self;
 }
 
@@ -29,7 +29,7 @@
 {
     // Update the ticker value
     _ticker = tickerString;
-    
+
     // Trigger notification to update ticker
     [[NSNotificationCenter defaultCenter] postNotificationName:@"btcbar_ticker_update" object:self];
 }
@@ -37,14 +37,14 @@
 // Initiates an asyncronous HTTP connection
 - (void)requestUpdate
 {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://btc-e.com/api/2/btc_usd/ticker"]];
-    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://bittrex.com/api/v1.1/public/getticker?market=USDT-BTC"]];
+
     // Set the request's user agent
-    [request addValue:@"btcbar/2.0 (BTCeUSDFetcher)" forHTTPHeaderField:@"User-Agent"];
-    
+    [request addValue:@"btcbar/2.0 (BittrexUSDFetcher)" forHTTPHeaderField:@"User-Agent"];
+
     // Initialize a connection from our request
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
+
     // Go go go
     [connection start];
 }
@@ -74,17 +74,17 @@
     NSError *jsonParsingError = nil;
     NSDictionary *results = [[NSDictionary alloc] init];
     results = [NSJSONSerialization JSONObjectWithData:self.responseData options:0 error:&jsonParsingError];
-    
+
     // Results parsed successfully from JSON
     if(results)
     {
-        
-        if ([[results objectForKey:@"ticker"] objectForKey:@"last"])
+
+        if ([[results objectForKey:@"result"] objectForKey:@"Last"])
         {
             NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
             currencyStyle.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
             currencyStyle.numberStyle = NSNumberFormatterCurrencyStyle;
-            self.ticker = [currencyStyle stringFromNumber:[[results objectForKey:@"ticker"] objectForKey:@"last"]];
+            self.ticker = [currencyStyle stringFromNumber:[[results objectForKey:@"result"] objectForKey:@"Last"]];
         }
         else
         {
@@ -103,7 +103,7 @@
 // HTTP request failed
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    self.error = [NSError errorWithDomain:@"com.nearengine.btcbar" code:0 userInfo:[NSDictionary dictionaryWithObjectsAndKeys: @"Connection Error", NSLocalizedDescriptionKey, @"Could not connect to BTCe.", NSLocalizedFailureReasonErrorKey, nil]];
+    self.error = [NSError errorWithDomain:@"com.nearengine.btcbar" code:0 userInfo:[NSDictionary dictionaryWithObjectsAndKeys: @"Connection Error", NSLocalizedDescriptionKey, @"Could not connect to Bittrex.", NSLocalizedFailureReasonErrorKey, nil]];
     self.ticker = nil;
 }
 
