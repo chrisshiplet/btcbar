@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EC0319E5F962A171A69FAD4 /* libPods-btcbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5816427FA49030D15D38F06 /* libPods-btcbar.a */; };
 		830CE091171B6C3E00DDD525 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830CE090171B6C3E00DDD525 /* Cocoa.framework */; };
 		830CE09B171B6C3E00DDD525 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 830CE099171B6C3E00DDD525 /* InfoPlist.strings */; };
 		830CE09D171B6C3E00DDD525 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CE09C171B6C3E00DDD525 /* main.m */; };
 		830CE0A4171B6C3E00DDD525 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CE0A3171B6C3E00DDD525 /* AppDelegate.m */; };
 		8317A2271F68F83E0056F110 /* KrakenUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8317A2261F68F83E0056F110 /* KrakenUSDFetcher.m */; };
+		836591E01F69021000EC56E7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836591DF1F69021000EC56E7 /* SystemConfiguration.framework */; };
 		83C3E7491859700100FA2921 /* BitStampUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C3E7421859700100FA2921 /* BitStampUSDFetcher.m */; };
 		83C3E74A1859700100FA2921 /* BittrexUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C3E7441859700100FA2921 /* BittrexUSDFetcher.m */; };
 		83C3E74B1859700100FA2921 /* CoinbaseUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C3E7461859700100FA2921 /* CoinbaseUSDFetcher.m */; };
@@ -26,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52DCCFBD41F1FB6F1AFC6AB9 /* Pods-btcbar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-btcbar.release.xcconfig"; path = "Pods/Target Support Files/Pods-btcbar/Pods-btcbar.release.xcconfig"; sourceTree = "<group>"; };
 		830CE08D171B6C3E00DDD525 /* btcbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = btcbar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		830CE090171B6C3E00DDD525 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		830CE093171B6C3E00DDD525 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -40,6 +43,7 @@
 		830CE0AE171B6C3F00DDD525 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		8317A2251F68F83E0056F110 /* KrakenUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KrakenUSDFetcher.h; path = Fetchers/KrakenUSDFetcher.h; sourceTree = "<group>"; };
 		8317A2261F68F83E0056F110 /* KrakenUSDFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KrakenUSDFetcher.m; path = Fetchers/KrakenUSDFetcher.m; sourceTree = "<group>"; };
+		836591DF1F69021000EC56E7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		838F4296182E2F6E00B4FC58 /* Fetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fetcher.h; sourceTree = "<group>"; };
 		83C3E7411859700100FA2921 /* BitStampUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BitStampUSDFetcher.h; path = Fetchers/BitStampUSDFetcher.h; sourceTree = "<group>"; };
 		83C3E7421859700100FA2921 /* BitStampUSDFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BitStampUSDFetcher.m; path = Fetchers/BitStampUSDFetcher.m; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 		83C3E758185970C800FA2921 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = ../Resources/Icon.icns; sourceTree = "<group>"; };
 		90347B7718ACB073005C42A8 /* HuobiUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HuobiUSDFetcher.h; path = Fetchers/HuobiUSDFetcher.h; sourceTree = "<group>"; };
 		90347B7818ACB073005C42A8 /* HuobiUSDFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HuobiUSDFetcher.m; path = Fetchers/HuobiUSDFetcher.m; sourceTree = "<group>"; };
+		91E7C0B6B68190B81D108954 /* Pods-btcbar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-btcbar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-btcbar/Pods-btcbar.debug.xcconfig"; sourceTree = "<group>"; };
+		A5816427FA49030D15D38F06 /* libPods-btcbar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-btcbar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65127451A71A1BB00FB6A24 /* OKCoinUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKCoinUSDFetcher.h; path = Fetchers/OKCoinUSDFetcher.h; sourceTree = "<group>"; };
 		B65127461A71A1BB00FB6A24 /* OKCoinUSDFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OKCoinUSDFetcher.m; path = Fetchers/OKCoinUSDFetcher.m; sourceTree = "<group>"; };
 		B66283391A712EBB00520512 /* BitFinexUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BitFinexUSDFetcher.h; path = Fetchers/BitFinexUSDFetcher.h; sourceTree = "<group>"; };
@@ -66,7 +72,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				836591E01F69021000EC56E7 /* SystemConfiguration.framework in Frameworks */,
 				830CE091171B6C3E00DDD525 /* Cocoa.framework in Frameworks */,
+				0EC0319E5F962A171A69FAD4 /* libPods-btcbar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +87,7 @@
 				830CE096171B6C3E00DDD525 /* btcbar */,
 				830CE08F171B6C3E00DDD525 /* Frameworks */,
 				830CE08E171B6C3E00DDD525 /* Products */,
+				FC89E829F0539D4113CA412E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,9 +102,11 @@
 		830CE08F171B6C3E00DDD525 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				836591DF1F69021000EC56E7 /* SystemConfiguration.framework */,
 				830CE090171B6C3E00DDD525 /* Cocoa.framework */,
 				830CE0AE171B6C3F00DDD525 /* SenTestingKit.framework */,
 				830CE092171B6C3E00DDD525 /* Other Frameworks */,
+				A5816427FA49030D15D38F06 /* libPods-btcbar.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -176,6 +187,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		FC89E829F0539D4113CA412E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				91E7C0B6B68190B81D108954 /* Pods-btcbar.debug.xcconfig */,
+				52DCCFBD41F1FB6F1AFC6AB9 /* Pods-btcbar.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -183,9 +203,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 830CE0BE171B6C3F00DDD525 /* Build configuration list for PBXNativeTarget "btcbar" */;
 			buildPhases = (
+				58967554902F09E1D2C9D6EC /* [CP] Check Pods Manifest.lock */,
 				830CE089171B6C3E00DDD525 /* Sources */,
 				830CE08A171B6C3E00DDD525 /* Frameworks */,
 				830CE08B171B6C3E00DDD525 /* Resources */,
+				212E5A6791DDF9BCB003637E /* [CP] Embed Pods Frameworks */,
+				5ED6ABBEEE578D8CEDDDB01E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,6 +259,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		212E5A6791DDF9BCB003637E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-btcbar/Pods-btcbar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58967554902F09E1D2C9D6EC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5ED6ABBEEE578D8CEDDDB01E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-btcbar/Pods-btcbar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		830CE089171B6C3E00DDD525 /* Sources */ = {
@@ -329,6 +400,7 @@
 		};
 		830CE0BF171B6C3F00DDD525 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91E7C0B6B68190B81D108954 /* Pods-btcbar.debug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -343,6 +415,7 @@
 		};
 		830CE0C0171B6C3F00DDD525 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52DCCFBD41F1FB6F1AFC6AB9 /* Pods-btcbar.release.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

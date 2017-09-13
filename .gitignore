@@ -10,3 +10,4 @@ Release
 *.xcuserstate
 project.xcworkspace/
 xcuserdata/
+Pods/
