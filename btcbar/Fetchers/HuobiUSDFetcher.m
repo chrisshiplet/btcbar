@@ -19,9 +19,6 @@
 
         // Website location
         self.url = @"http://www.huobi.com";
-
-        // Immediately request first update
-        [self requestUpdate];
     }
 
     return self;
@@ -74,7 +71,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSString *responseStr = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
-    
+
     if (!responseStr) {
         return;
     }
@@ -91,7 +88,7 @@
             NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
             currencyStyle.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
             currencyStyle.numberStyle = NSNumberFormatterCurrencyStyle;
-            
+
             self.error = nil;
             self.ticker = [currencyStyle stringFromNumber:ticker];
         }

@@ -16,9 +16,6 @@
 
         // Website location
         self.url = @"https://www.bitstamp.net/";
-
-        // Immediately request first update
-        [self requestUpdate];
     }
 
     return self;

@@ -16,14 +16,11 @@
     {
         // Menu Item Name
         self.ticker_menu = @"BitFinexUSD";
-        
+
         // Website location
         self.url = @"https://www.bitfinex.com/";
-        
-        // Immediately request first update
-        [self requestUpdate];
     }
-    
+
     return self;
 }
 
@@ -32,7 +29,7 @@
 {
     // Update the ticker value
     _ticker = tickerString;
-    
+
     // Trigger notification to update ticker
     [[NSNotificationCenter defaultCenter] postNotificationName:@"btcbar_ticker_update" object:self];
 }
@@ -43,13 +40,13 @@
     // More information on the API
     // can be found here: https://www.bitfinex.com/pages/api
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.bitfinex.com/v1/pubticker/BTCUSD/"]];
-    
+
     // Set the request's user agent
     [request addValue:@"btcbar/2.3 (BitFinexUSDFetcher)" forHTTPHeaderField:@"User-Agent"];
-    
+
     // Initialize a connection from our request
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
+
     // Go go go
     [connection start];
 }
@@ -79,13 +76,13 @@
     NSError *jsonParsingError = nil;
     NSDictionary *results = [[NSDictionary alloc] init];
     results = [NSJSONSerialization JSONObjectWithData:self.responseData options:0 error:&jsonParsingError];
-    
+
     // Results parsed successfully from JSON
     if(results)
     {
         // Get API status
         NSString *resultsStatus = [results objectForKey:@"last_price"];
-        
+
         // If API call succeeded update the ticker...
         if(resultsStatus)
         {

@@ -4,6 +4,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Reachability.h"
 
 @implementation AppDelegate
 
@@ -82,6 +83,13 @@
 
     // Setup timer to update all tickers every 60 seconds
     updateDataTimer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(updateDataTimerAction:) userInfo:nil repeats:YES];
+    [updateDataTimer fire];
+
+    // Initialize Reachability
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+
+    [reachability startNotifier];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
 }
 
 
@@ -166,6 +174,15 @@
 {
     for (id <Fetcher> ticker in tickers)
         [ticker requestUpdate];
+}
+
+- (void)reachabilityDidChange:(NSNotification *)notification {
+    Reachability *reachability = (Reachability *)[notification object];
+
+    if ([reachability isReachable]) {
+        for (id <Fetcher> ticker in tickers)
+            [ticker requestUpdate];
+    }
 }
 
 @end

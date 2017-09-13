@@ -16,9 +16,6 @@
 
         // Website location
         self.url = @"https://bittrex.com/";
-
-        // Immediately request first update
-        [self requestUpdate];
     }
 
     return self;

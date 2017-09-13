@@ -13,14 +13,11 @@
     {
         // Menu Item Name
         self.ticker_menu = @"CoinbaseUSD";
-        
+
         // Website location
         self.url = @"https://coinbase.com/";
-        
-        // Immediately request first update
-        [self requestUpdate];
     }
-    
+
     return self;
 }
 
@@ -29,7 +26,7 @@
 {
     // Update the ticker value
     _ticker = tickerString;
-    
+
     // Trigger notification to update ticker
     [[NSNotificationCenter defaultCenter] postNotificationName:@"btcbar_ticker_update" object:self];
 }
@@ -38,13 +35,13 @@
 - (void)requestUpdate
 {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://coinbase.com/api/v1/prices/spot_rate"]];
-    
+
     // Set the request's user agent
     [request addValue:@"btcbar/2.0 (CoinbaseUSDFetcher)" forHTTPHeaderField:@"User-Agent"];
-    
+
     // Initialize a connection from our request
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
+
     // Go go go
     [connection start];
 }
@@ -74,13 +71,13 @@
     NSError *jsonParsingError = nil;
     NSDictionary *results = [[NSDictionary alloc] init];
     results = [NSJSONSerialization JSONObjectWithData:self.responseData options:0 error:&jsonParsingError];
-    
+
     // Results parsed successfully from JSON
     if(results)
     {
         // Get API status
         NSString *resultsStatus = [results objectForKey:@"amount"];
-        
+
         // If API call succeeded update the ticker...
         if(resultsStatus)
         {
