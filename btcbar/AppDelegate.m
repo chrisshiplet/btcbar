@@ -32,7 +32,6 @@
                [[BitStampUSDFetcher alloc] init],
                [[BittrexUSDFetcher alloc] init],
                [[CoinbaseUSDFetcher alloc] init],
-               [[HuobiUSDFetcher alloc] init],
                [[OKCoinUSDFetcher alloc] init],
                [[WinkDexUSDFetcher alloc] init],
                [[KrakenUSDFetcher alloc] init],
