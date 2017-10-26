@@ -21,7 +21,6 @@
 		83C3E7541859702D00FA2921 /* btclogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C3E7501859702D00FA2921 /* btclogo.png */; };
 		83C3E7551859702D00FA2921 /* btclogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C3E7511859702D00FA2921 /* btclogo@2x.png */; };
 		83C3E759185970C800FA2921 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 83C3E758185970C800FA2921 /* Icon.icns */; };
-		90347B7918ACB073005C42A8 /* HuobiUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 90347B7818ACB073005C42A8 /* HuobiUSDFetcher.m */; };
 		B65127471A71A1BB00FB6A24 /* OKCoinUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B65127461A71A1BB00FB6A24 /* OKCoinUSDFetcher.m */; };
 		B662833B1A712EBB00520512 /* BitFinexUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B662833A1A712EBB00520512 /* BitFinexUSDFetcher.m */; };
 		B662833E1A715EFB00520512 /* WinkDexUSDFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B662833D1A715EFB00520512 /* WinkDexUSDFetcher.m */; };
@@ -55,8 +54,6 @@
 		83C3E7501859702D00FA2921 /* btclogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btclogo.png; path = Icons/btclogo.png; sourceTree = "<group>"; };
 		83C3E7511859702D00FA2921 /* btclogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btclogo@2x.png"; path = "Icons/btclogo@2x.png"; sourceTree = "<group>"; };
 		83C3E758185970C800FA2921 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = ../Resources/Icon.icns; sourceTree = "<group>"; };
-		90347B7718ACB073005C42A8 /* HuobiUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HuobiUSDFetcher.h; path = Fetchers/HuobiUSDFetcher.h; sourceTree = "<group>"; };
-		90347B7818ACB073005C42A8 /* HuobiUSDFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HuobiUSDFetcher.m; path = Fetchers/HuobiUSDFetcher.m; sourceTree = "<group>"; };
 		91E7C0B6B68190B81D108954 /* Pods-btcbar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-btcbar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-btcbar/Pods-btcbar.debug.xcconfig"; sourceTree = "<group>"; };
 		A5816427FA49030D15D38F06 /* libPods-btcbar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-btcbar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65127451A71A1BB00FB6A24 /* OKCoinUSDFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OKCoinUSDFetcher.h; path = Fetchers/OKCoinUSDFetcher.h; sourceTree = "<group>"; };
@@ -173,8 +170,6 @@
 				83C3E7441859700100FA2921 /* BittrexUSDFetcher.m */,
 				83C3E7451859700100FA2921 /* CoinbaseUSDFetcher.h */,
 				83C3E7461859700100FA2921 /* CoinbaseUSDFetcher.m */,
-				90347B7718ACB073005C42A8 /* HuobiUSDFetcher.h */,
-				90347B7818ACB073005C42A8 /* HuobiUSDFetcher.m */,
 			);
 			name = Fetchers;
 			sourceTree = "<group>";
@@ -225,7 +220,7 @@
 		830CE085171B6C3E00DDD525 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = nearengine;
 			};
 			buildConfigurationList = 830CE088171B6C3E00DDD525 /* Build configuration list for PBXProject "btcbar" */;
@@ -318,7 +313,6 @@
 				830CE09D171B6C3E00DDD525 /* main.m in Sources */,
 				B65127471A71A1BB00FB6A24 /* OKCoinUSDFetcher.m in Sources */,
 				B662833E1A715EFB00520512 /* WinkDexUSDFetcher.m in Sources */,
-				90347B7918ACB073005C42A8 /* HuobiUSDFetcher.m in Sources */,
 				83C3E74B1859700100FA2921 /* CoinbaseUSDFetcher.m in Sources */,
 				83C3E74A1859700100FA2921 /* BittrexUSDFetcher.m in Sources */,
 				8317A2271F68F83E0056F110 /* KrakenUSDFetcher.m in Sources */,
@@ -347,16 +341,22 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -365,7 +365,9 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
@@ -380,18 +382,26 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = "";
