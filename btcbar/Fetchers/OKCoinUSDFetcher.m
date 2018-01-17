@@ -80,18 +80,23 @@
     {
         // Get API status
         NSDictionary *ticker = [results objectForKey:@"ticker"];
-        NSString *resultsStatus = [ticker objectForKey:@"last"];
-
 
         // If API call succeeded update the ticker...
-        if(resultsStatus)
+        if(ticker)
         {
-            NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
-            currencyStyle.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-            currencyStyle.numberStyle = NSNumberFormatterCurrencyStyle;
-
-            self.error = nil;
-            self.ticker = [currencyStyle stringFromNumber:[NSDecimalNumber decimalNumberWithString:resultsStatus]];
+            NSString *resultsStatus = [ticker objectForKey:@"last"];
+            
+            if (resultsStatus) {
+                NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
+                currencyStyle.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+                currencyStyle.numberStyle = NSNumberFormatterCurrencyStyle;
+                
+                self.error = nil;
+                self.ticker = [currencyStyle stringFromNumber:[NSDecimalNumber decimalNumberWithString:resultsStatus]];
+            } else {
+                self.error = [NSError errorWithDomain:@"com.nearengine.btcbar" code:0 userInfo:[NSDictionary dictionaryWithObjectsAndKeys: @"API Error", NSLocalizedDescriptionKey, @"The JSON received did not contain a result or the API returned an error.", NSLocalizedFailureReasonErrorKey, nil]];
+                self.ticker = nil;
+            }
         }
         // Otherwise log an error...
         else

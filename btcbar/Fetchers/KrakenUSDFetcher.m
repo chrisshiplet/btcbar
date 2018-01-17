@@ -75,16 +75,13 @@
     // Results parsed successfully from JSON
     if(results)
     {
-
-        if ([[[results objectForKey:@"result"] objectForKey:@"XXBTZUSD"] objectForKey:@"c"])
-        {
+        @try {
             NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
             currencyStyle.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
             currencyStyle.numberStyle = NSNumberFormatterCurrencyStyle;
             self.ticker = [currencyStyle stringFromNumber:[NSDecimalNumber decimalNumberWithString:[[[results objectForKey:@"result"] objectForKey:@"XXBTZUSD"] objectForKey:@"c"][0]]];
         }
-        else
-        {
+        @catch (NSException *exception) {
             self.error = [NSError errorWithDomain:@"com.nearengine.btcbar" code:0 userInfo:[NSDictionary dictionaryWithObjectsAndKeys: @"API Error", NSLocalizedDescriptionKey, @"The JSON received did not contain a result or the API returned an error.", NSLocalizedFailureReasonErrorKey, nil]];
             self.ticker = nil;
         }
