@@ -34,6 +34,7 @@
                [[CoinbaseUSDFetcher alloc] init],
                [[OKCoinUSDFetcher alloc] init],
                [[KrakenUSDFetcher alloc] init],
+               [[CEXIOUSDFetcher alloc] init],
                nil];
 
     // If ticker preference does not exist, default to 0
