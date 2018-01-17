@@ -1,5 +1,11 @@
-changelog
-=========
+# changelog
+
+# 2.5.0
+
+* #27 Remove Huobi
+* #29 Add CEX.io
+* #30 Fix intermittent crash
+* #31 Remove Winkdex
 
 # 2.4.0
 
@@ -21,6 +27,7 @@ changelog
 * Tickers are now sorted alphabetically
 
 TODO:
+
 * Implement multiple currency pair support on tickers in the near future to support switching between currencies.
 * Make ticker loading and default ticker handling more robust so they can be swapped out or plugged in easier.
 * Implement self-updates from within the app
@@ -67,6 +74,7 @@ TODO:
 * Adds Bitstamp and Coinbase, and a little better backend abstraction so it will be easier to add future tickers.
 
 TODO:
+
 * Live updating prices for each menu item in the dropdown
 * More robust abstraction of tickers/dynamic menu
 
